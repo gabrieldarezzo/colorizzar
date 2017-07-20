@@ -6,7 +6,7 @@
 
 Change the color of an image from RGB to any color you want, keep alpha channnel  
 
-![Scheme](doc/to_from.png)  
+![Scheme](doc/to_from_rgb.png)  
 
 Altere a cor da sua imagem para qualquer cor que você quiser, sem perder a camada transparente
 
@@ -20,7 +20,7 @@ $changeColor->colorizeByNameColor('Blue', 'car_red.png', 'cars/', 'blue.png');
 
 ### Create all `135` COLORS!
 
-![Scheme](doc/to_from_rgb.png)
+![Scheme](doc/to_from.png)  
 
 
 ```php
