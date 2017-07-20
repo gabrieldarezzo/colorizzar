@@ -4,11 +4,13 @@
 ## Não perca sua camada transparente  
 
 
-Change the color of an image from RGB to any color you want, keep alpha channnel  
+Change the color of an image from RGB to any color you want, keep alpha channnel    
+Altere a cor da sua imagem para qualquer cor que você quiser, sem perder a camada transparente  
+
 
 ![Scheme](doc/to_from_rgb.png)  
 
-Altere a cor da sua imagem para qualquer cor que você quiser, sem perder a camada transparente
+
 
 ```php
 use Colorizzar\Colors;
