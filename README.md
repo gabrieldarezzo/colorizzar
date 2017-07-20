@@ -27,7 +27,8 @@ $changeColor->colorizeByNameColor('Blue', 'car_red.png', 'cars/'); // Will creat
 ```   
  
  
-Ex of result `colorizeKeepAplhaChannnel()`, `colorizeByNameColor()`:
+Ex of result `colorizeKeepAplhaChannnel()`, `colorizeByNameColor()`  
+
 ![Scheme](doc/to_from_rgb.png)  
 
 
