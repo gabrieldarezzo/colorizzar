@@ -19,29 +19,8 @@ From: rgb(255, 31 , 40 );
 To:   rgb(31 , 117, 254);
 ```
 
-```php
-<?php
-use Colorizzar\ChangeColor;
-
-$changeColor = new ChangeColor();
-$changeColor->colorizeByNameColor('Blue', 'car_red.png', 'cars/', 'blue.png');
-```
-  
-
-### Create all `135` COLORS with `colorizeToAllColors()` !
-
-![Scheme](doc/to_from.png)  
-
-
-```php
-<?php
-use Colorizzar\ChangeColor;
-
-$changeColor = new ChangeColor();
-$changeColor->colorizeToAllColors('car_red.png', 'cars/');
-```
-
-You can create specific color by RGB too:
+By Script ->
+You can create specific color by RGB:
 ```php
 <?php
 
@@ -49,14 +28,28 @@ require_once 'vendor/autoload.php';
 
 use Colorizzar\ChangeColor;
 
-$targetRed   = 135;
-$targetGreen = 206;
-$targetBlue  = 235;
-$fileOut     = 'cars/new_blue_car.png';
-
 $changeColor = new ChangeColor();
-$changeColor->colorizeKeepAplhaChannnel($this->fileLocation, $targetRed, $targetGreen, $targetBlue, $fileOut);
+$changeColor->colorizeKeepAplhaChannnel('red_car.png', 31, 117, 254, 'new_blue_car.png');
 ```
+
+Or Just choose one by colorName 
+
+```php
+$changeColor->colorizeByNameColor('Blue', 'car_red.png', 'cars/', 'blue.png');
+```
+
+
+  
+
+### Create all `135` COLORS with `colorizeToAllColors()` !
+
+![Scheme](doc/to_from.png)  
+
+```php
+$changeColor->colorizeToAllColors('car_red.png', 'cars/');
+```
+
+
 
 
 ```
@@ -78,6 +71,7 @@ Don't forget require autoload
 require_once 'vendor/autoload.php';
 
 use Colorizzar\ChangeColor;
+
 ```
 
 
