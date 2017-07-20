@@ -44,6 +44,9 @@ $changeColor->colorizeToAllColors('car_red.png', 'cars/');
 You can create specific color by RGB too:
 ```php
 <?php
+
+require_once 'vendor/autoload.php';
+
 use Colorizzar\ChangeColor;
 
 $targetRed   = 135;
@@ -75,19 +78,12 @@ Don't forget require autoload
 require_once 'vendor/autoload.php';
 
 use Colorizzar\ChangeColor;
-
-$targetRed   = 135;
-$targetGreen = 206;
-$targetBlue  = 235;
-$fileOut     = 'cars/new_blue_car.png';
-
-$changeColor = new ChangeColor();
-$changeColor->colorizeKeepAplhaChannnel($this->fileLocation, $targetRed, $targetGreen, $targetBlue, $fileOut);
 ```
 
 
 ### TODO-LIST:
   - *Create a plugin in JS consume colorizzar and show in realtime result   
+  - Add DockBlock in all methods
   - Improve tests (check if has new rgb in image created instead just check if file is created)  
   - Improve ChangeColor.php SOLID (Create/Read file for example)  
   - Create some way custom color can be use and re-used in Colorizzar\Colors
