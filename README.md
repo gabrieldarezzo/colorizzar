@@ -5,21 +5,9 @@ Change the color of an image without lose alpha channnel (alpha layer)
 Altere a cor da sua imagem sem perder a camada de alpha (transparência)
 
 
-
-Ex:   
-![Scheme](doc/to_from_rgb.png)  
-
 You can change the color of this [car](https://github.com/gabrieldarezzo/colorizzar/blob/master/car.png?raw=true) (Or any imagem you want)
 
-```
-//RED-COLOR 
-From: rgb(255, 31 , 40 );
 
-//BLUE-COLOR
-To:   rgb(31 , 117, 254);
-```
-
-By Script ->
 You can create specific color by RGB:
 ```php
 <?php
@@ -35,8 +23,11 @@ $changeColor->colorizeKeepAplhaChannnel('red_car.png', 31, 117, 254, 'new_blue_c
 Or Just choose one by colorName 
 
 ```php
-$changeColor->colorizeByNameColor('Blue', 'car_red.png', 'cars/', 'blue.png');
+$changeColor->colorizeByNameColor('Blue', 'car_red.png', 'cars/'); // Will create 'blue.png'
 ```
+
+Ex of result `colorizeKeepAplhaChannnel()`, `colorizeByNameColor()`:
+![Scheme](doc/to_from_rgb.png)  
 
 
   
