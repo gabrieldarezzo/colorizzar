@@ -83,6 +83,21 @@ use Colorizzar\ChangeColor;
 
 
 
+```batch
+//List things to-do in Folder before commit:
+.\vendor\bin\phpcs --standard=PSR2 src\
+
+//Fix File!
+.\vendor\bin\phpcbf --standard=PSR2 src\file.php
+
+Fix a Folder
+.\vendor\bin\phpcbf --standard=PSR2 src\ -w --no-patch
+
+//Don't Forget check if you don't break anything hehe. You need test manually #NOT
+.\vendor\bin\phpunit
+```
+
+
 
 ### Don't know RGB color of your HEX?!  
 https://www.webpagefx.com/web-design/hex-to-rgb/
