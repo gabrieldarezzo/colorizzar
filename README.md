@@ -24,8 +24,9 @@ Or Just choose one by colorName
 
 ```php
 $changeColor->colorizeByNameColor('Blue', 'car_red.png', 'cars/'); // Will create 'blue.png'
-```
-
+```   
+ 
+ 
 Ex of result `colorizeKeepAplhaChannnel()`, `colorizeByNameColor()`:
 ![Scheme](doc/to_from_rgb.png)  
 
