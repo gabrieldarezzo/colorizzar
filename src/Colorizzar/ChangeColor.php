@@ -23,8 +23,10 @@ class ChangeColor
     */
     public function __construct($inputFilePathIn)
     {
-        if(!file_exists($inputFilePathIn)){
-            throw new Exception("Arquivo não existe");
+        if (!file_exists($inputFilePathIn)) {
+            throw new Exception(
+                sprintf('Arquivo "%s" não existe.', $inputFilePathIn)
+            );
         }
 
         $this->filePathIn = $inputFilePathIn;

@@ -12,20 +12,28 @@ class ChangeColorTests extends PHPUnit_Framework_TestCase
     private $defaultRedRGB = 255;
     private $defaultGreenRGB = 31;
     private $defaultBlueRGB = 40;
-    
+
     public function SetUp()
     {
-        $this->fileLocation = __DIR__.'./files/car.png';
-        $this->folderOut = __DIR__.'./output/';
+        $this->fileLocation = __DIR__.'/files/car.png';
+        $this->folderOut = __DIR__.'/output/';
 
         //Delete all old files if exists, (Will ignore .gitkeep because glob() ignores all 'hidden')
-        $files = glob(__DIR__.'./output/*');        
+        $files = glob(__DIR__.'./output/*');
         foreach($files as $file) {
             if(is_file($file)){
                 unlink($file);
             }
         }
-    }    
+    }
+
+    public function assertPreConditions()
+    {
+        $this->assertFileExists(
+            $this->fileLocation,
+            'Arquivo de origem deve exitir.'
+        );
+    }
 
     public function testFileCreation()
     {
