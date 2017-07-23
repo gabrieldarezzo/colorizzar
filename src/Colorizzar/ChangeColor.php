@@ -64,15 +64,15 @@ class ChangeColor
     */
     public function validateFromRGB()
     {
-        if(!isset($this->fromRed)){
+        if (!isset($this->fromRed)) {
             return false;
         }
 
-        if(!isset($this->fromGreen)){
+        if (!isset($this->fromGreen)) {
             return false;
         }
 
-        if(!isset($this->fromBlue)){
+        if (!isset($this->fromBlue)) {
             return false;
         }
 
@@ -86,15 +86,15 @@ class ChangeColor
     */
     public function validateToRGB()
     {
-        if(!isset($this->toRed)){
+        if (!isset($this->toRed)) {
             return false;
         }
 
-        if(!isset($this->toGreen)){
+        if (!isset($this->toGreen)) {
             return false;
         }
 
-        if(!isset($this->toBlue)){
+        if (!isset($this->toBlue)) {
             return false;
         }
 
@@ -109,12 +109,11 @@ class ChangeColor
     */
     public function colorizeKeepAplhaChannnel($fileOutPath)
     {
-
-        if(!$this->validateFromRGB()){
+        if (!$this->validateFromRGB()) {
             throw new Exception("You should use setFromRGB() method");
         }
 
-        if(!$this->validateToRGB()){
+        if (!$this->validateToRGB()) {
             throw new Exception("You should use setToRGB() method");
         }
 
@@ -138,8 +137,14 @@ class ChangeColor
 
                 $flagFoundColor = true;
 
-                $colorOld = imagecolorallocatealpha($im_src, $colorOldRGB["red"], $colorOldRGB["green"], $colorOldRGB["blue"], 0);
-                
+                $colorOld = imagecolorallocatealpha(
+                    $im_src,
+                    $colorOldRGB["red"],
+                    $colorOldRGB["green"],
+                    $colorOldRGB["blue"],
+                    0
+                );
+
                 $color2Change = imagecolorallocatealpha($im_src, $this->fromRed, $this->fromGreen, $this->fromBlue, 0);
 
                 $flagFoundColor = ($color2Change == $colorOld);
@@ -151,7 +156,7 @@ class ChangeColor
                 }
             }
         }
-        
+
         return imagepng($im_dst, $fileOutPath);
     }
 
@@ -169,7 +174,7 @@ class ChangeColor
         $targetRed = $color->rgb[0];
         $targetGreen = $color->rgb[1];
         $targetBlue = $color->rgb[2];
-        
+
         $colorNameTmp = str_replace(' ', '_', strtolower($color->name));
         $colorName = str_replace("'", '', $colorNameTmp);
 
@@ -180,8 +185,8 @@ class ChangeColor
         }
 
         $this->setToRGB($targetRed, $targetGreen, $targetBlue);
-        
-       return $this->colorizeKeepAplhaChannnel($fullName);
+
+        return $this->colorizeKeepAplhaChannnel($fullName);
     }
 
     /**
@@ -196,7 +201,7 @@ class ChangeColor
             $targetRed = $color->rgb[0];
             $targetGreen = $color->rgb[1];
             $targetBlue = $color->rgb[2];
-            
+
             $colorNameTmp = str_replace(' ', '_', strtolower($color->name));
             $colorName = str_replace("'", '', $colorNameTmp) . '.png';
             $fullName = $folderOut . '/' . $colorName;
@@ -212,5 +217,4 @@ class ChangeColor
 
         return $returArr;
     }
-    
 }
