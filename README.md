@@ -27,7 +27,7 @@ $changeColor->colorizeKeepAplhaChannnel('new_blue_car.png');
 
 ```
 
-Or change color name 
+Or change color by color name with method `colorizeByNameColor()`
 
 ```php
 $changeColor = new ChangeColor('red_car.png');
@@ -107,9 +107,9 @@ try {
 
 ### TODO-LIST:
   - *Create a plugin in JS consume colorizzar and show in realtime result   
-  - Add DockBlock in all methods
+  - (done) Add DockBlock in all methods
   - Improve tests (check if has new rgb in image created instead just check if file is created)  
-  - Improve ChangeColor.php SOLID
+  - (done) Improve ChangeColor.php SOLID
 
 '* 
 1 - Hash create by upload image  
