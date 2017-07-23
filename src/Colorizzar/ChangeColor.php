@@ -3,24 +3,121 @@
 namespace Colorizzar;
 
 use Colorizzar\Colors;
+use Exception;
 
 class ChangeColor
 {
+    private $filePathIn;
 
-    
+    private $fromRed;
+    private $fromGreen;
+    private $fromBlue;
 
-    //Same of 'car.png', rgb(255, 31, 40) == #ff1f28
-    private $defaultRed = 255;
-    private $defaultGreen = 31;
-    private $defaultBlue = 40;
+    private $toRed;
+    private $toGreen;
+    private $toBlue;
+
+    /**
+    * Set File Path
+    * @param string $inputFilePathIn File Path of file you want change color
+    */
+    public function __construct($inputFilePathIn)
+    {
+        if(!file_exists($inputFilePathIn)){
+            throw new Exception("Arquivo não existe");
+        }
+
+        $this->filePathIn = $inputFilePathIn;
+    }
+
+    /**
+    * Set RGB colors From
+    * @param int $r color
+    * @param int $g color
+    * @param int $b color
+    */
+    public function setFromRGB($red, $green, $blue)
+    {
+        $this->fromRed   = $red;
+        $this->fromGreen = $green;
+        $this->fromBlue  = $blue;
+    }
+
+    /**
+    * Set RGB colors To
+    * @param int $r color
+    * @param int $g color
+    * @param int $b color
+    */
+    public function setToRGB($red, $green, $blue)
+    {
+        $this->toRed   = $red;
+        $this->toGreen = $green;
+        $this->toBlue  = $blue;
+    }
+
+    /**
+    * Check if fromRGB is set
+    * @return boolean
+    */
+    public function validateFromRGB()
+    {
+        if(!isset($this->fromRed)){
+            return false;
+        }
+
+        if(!isset($this->fromGreen)){
+            return false;
+        }
+
+        if(!isset($this->fromBlue)){
+            return false;
+        }
+
+        return true;
+    }
 
 
-    //Original content: http://stackoverflow.com/questions/17733805/php-replace-base-color-of-transparent-png-image
-    public function colorizeKeepAplhaChannnel($inputFilePathIn, $targetRedIn, $targetGreenIn, $targetBlueIn, $saida)
+    /**
+    * Check if fromRGB is set
+    * @return boolean
+    */
+    public function validateToRGB()
+    {
+        if(!isset($this->toRed)){
+            return false;
+        }
+
+        if(!isset($this->toGreen)){
+            return false;
+        }
+
+        if(!isset($this->toBlue)){
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+    * Check if fromRGB is set
+    * Original content: http://stackoverflow.com/questions/17733805/php-replace-base-color-of-transparent-png-image
+    * @param string $fileOutPath File Path where new file will created
+    * @return boolean
+    */
+    public function colorizeKeepAplhaChannnel($fileOutPath)
     {
 
-        $im_src = imagecreatefrompng($inputFilePathIn);
-        $im_dst = imagecreatefrompng($inputFilePathIn);
+        if(!$this->validateFromRGB()){
+            throw new Exception("You should use setFromRGB() method");
+        }
+
+        if(!$this->validateToRGB()){
+            throw new Exception("You should use setToRGB() method");
+        }
+
+        $im_src = imagecreatefrompng($this->filePathIn);
+        $im_dst = imagecreatefrompng($this->filePathIn);
         $width = imagesx($im_src);
         $height = imagesy($im_src);
 
@@ -35,13 +132,13 @@ class ChangeColor
                 $rgb = imagecolorat($im_src, $x, $y);
                 $colorOldRGB = imagecolorsforindex($im_src, $rgb);
                 $alpha = $colorOldRGB["alpha"];
-                $colorNew = imagecolorallocatealpha($im_src, $targetRedIn, $targetGreenIn, $targetBlueIn, $alpha);
+                $colorNew = imagecolorallocatealpha($im_src, $this->toRed, $this->toGreen, $this->toBlue, $alpha);
 
                 $flagFoundColor = true;
 
                 $colorOld = imagecolorallocatealpha($im_src, $colorOldRGB["red"], $colorOldRGB["green"], $colorOldRGB["blue"], 0);
                 
-                $color2Change = imagecolorallocatealpha($im_src, $this->defaultRed, $this->defaultGreen, $this->defaultBlue, 0);
+                $color2Change = imagecolorallocatealpha($im_src, $this->fromRed, $this->fromGreen, $this->fromBlue, 0);
 
                 $flagFoundColor = ($color2Change == $colorOld);
 
@@ -53,33 +150,18 @@ class ChangeColor
             }
         }
         
-        $flagOK2 = imagepng($im_dst, $saida);
+        return imagepng($im_dst, $fileOutPath);
     }
 
-    public function colorizeToAllColors($fileInput, $folderOut)
+    /**
+    * Will recive color name and will replace
+    * @param string $nameColor
+    * @param string $folderName Save file in this folder
+    * @param string $fileName (optional) If you don't send nothing will get sanitize name of color, ex: 'red_violet.png'
+    * @return boolean
+    */
+    public function colorizeByNameColor($nameColor, $folderName, $fileName = '')
     {
-
-        $colors = Colors::getAllColors();
-
-        foreach ($colors as $color) {
-            $targetRed = $color->rgb[0];
-            $targetGreen = $color->rgb[1];
-            $targetBlue = $color->rgb[2];
-            
-            $colorNameTmp = str_replace(' ', '_', strtolower($color->name));
-            $colorName = str_replace("'", '', $colorNameTmp);
-            $fullName = $folderOut . '/' . $colorName . '.png';
-
-            
-            $this->colorizeKeepAplhaChannnel($fileInput, $targetRed, $targetGreen, $targetBlue, $fullName);
-        }
-    }
-
-
-    public function colorizeByNameColor($nameColor, $fileInput, $folderName, $fileName = '')
-    {
-        //check $folderName, and force end with '/'
-
         $color = Colors::getColorByName($nameColor);
 
         $targetRed = $color->rgb[0];
@@ -94,7 +176,39 @@ class ChangeColor
         } else {
             $fullName = $folderName . $fileName;
         }
+
+        $this->setToRGB($targetRed, $targetGreen, $targetBlue);
         
-        $this->colorizeKeepAplhaChannnel($fileInput, $targetRed, $targetGreen, $targetBlue, $fullName);
+       return $this->colorizeKeepAplhaChannnel($fullName);
     }
+
+    /**
+    * Will Loop all colors and create a new file with a new color
+    * @param string $folderName Where save all new files
+    * @return Array
+    */
+    public function colorizeToAllColors($folderOut)
+    {
+        $returArr = array();
+        foreach (Colors::getAllColors() as $color) {
+            $targetRed = $color->rgb[0];
+            $targetGreen = $color->rgb[1];
+            $targetBlue = $color->rgb[2];
+            
+            $colorNameTmp = str_replace(' ', '_', strtolower($color->name));
+            $colorName = str_replace("'", '', $colorNameTmp) . '.png';
+            $fullName = $folderOut . '/' . $colorName;
+
+            $this->setToRGB($targetRed, $targetGreen, $targetBlue);
+            $resultFile = $this->colorizeKeepAplhaChannnel($fullName);
+
+            $returArr[] = array(
+                 'result'    => $resultFile
+                ,'file_name' => $colorName
+            );
+        }
+
+        return $returArr;
+    }
+    
 }

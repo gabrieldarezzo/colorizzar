@@ -7,23 +7,25 @@ class ChangeColorTests extends PHPUnit_Framework_TestCase
 {
     private $fileLocation;
     private $folderOut;
+
+    //Default is Red car, 'tests/files/car.png'
+    private $defaultRedRGB = 255;
+    private $defaultGreenRGB = 31;
+    private $defaultBlueRGB = 40;
     
     public function SetUp()
     {
         $this->fileLocation = __DIR__.'./files/car.png';
         $this->folderOut = __DIR__.'./output/';
-    }    
 
-    public static function setUpBeforeClass() {
-        //Limpa arquivos antigos 
-        //(rm rf is just for linux...)
+        //Delete all old files if exists, (Will ignore .gitkeep because glob() ignores all 'hidden')
         $files = glob(__DIR__.'./output/*');        
         foreach($files as $file) {
             if(is_file($file)){
                 unlink($file);
             }
         }
-    }
+    }    
 
     public function testFileCreation()
     {
@@ -31,40 +33,89 @@ class ChangeColorTests extends PHPUnit_Framework_TestCase
         $this->assertTrue(is_readable($this->fileLocation));
     }
 
-    public function testColorizeKeepAplhaChannnel()
-    {        
-        $targetRed   = 135;
-        $targetGreen = 206;
-        $targetBlue  = 235;
-        $fileOut     = $this->folderOut . 'new_blue_car.png';
+    /**
+    * @expectedException Exception
+    */
+    public function testShouldValidateSetFromRGB()
+    {
+                
+        $changeColor = new ChangeColor($this->fileLocation);
+        //$changeColor->setFromRGB($this->defaultRedRGB, $this->defaultGreenRGB, $this->defaultBlueRGB);
 
-        $changeColor = new ChangeColor();
-        $changeColor->colorizeKeepAplhaChannnel($this->fileLocation, $targetRed, $targetGreen, $targetBlue, $fileOut);
+        //Blue Color
+        $red   = 135;
+        $green = 206;
+        $blue  = 235;
+        $changeColor->setToRGB($red, $green, $blue);
+
+        $fileOut = $this->folderOut . 'new_blue_car.png';
+        $changeColor->colorizeKeepAplhaChannnel($fileOut);
         
         $this->assertTrue(file_exists($this->fileLocation));
     }
 
-
-    public function testColorizeByNameColor()
+    /**
+    * @expectedException Exception
+    */
+    public function testShouldValidateSetToRGB()
     {
-        $changeColor = new ChangeColor();
+                
+        $changeColor = new ChangeColor($this->fileLocation);
+        $changeColor->setFromRGB($this->defaultRedRGB, $this->defaultGreenRGB, $this->defaultBlueRGB);
 
-        //Check Default Name
-        $changeColor->colorizeByNameColor('Red Violet', $this->fileLocation, $this->folderOut);
-        $this->assertTrue(file_exists($this->folderOut . 'red_violet.png'));
+        //Blue Color
+        $red   = 135;
+        $green = 206;
+        $blue  = 235;
+        //$changeColor->setToRGB($red, $green, $blue);
 
-        //Check Custom name
-        $changeColor->colorizeByNameColor('Red Violet', $this->fileLocation, $this->folderOut, 'violetinha.png');
-        $this->assertTrue(file_exists($this->folderOut . 'violetinha.png'));        
+        $fileOut = $this->folderOut . 'new_blue_car.png';
+        $changeColor->colorizeKeepAplhaChannnel($fileOut);
+        
+        $this->assertTrue(file_exists($this->fileLocation));
     }
 
-    
+    public function testColorizeKeepAplhaChannnel()
+    {        
+        $changeColor = new ChangeColor($this->fileLocation);
+        $changeColor->setFromRGB($this->defaultRedRGB, $this->defaultGreenRGB, $this->defaultBlueRGB);
+
+        //Blue Color
+        $red   = 135;
+        $green = 206;
+        $blue  = 235;
+        $changeColor->setToRGB($red, $green, $blue);
+
+        $fileOut = $this->folderOut . 'new_blue_car.png';
+        $changeColor->colorizeKeepAplhaChannnel($fileOut);
+        
+        $this->assertTrue(file_exists($this->fileLocation));
+    }
+
+    public function testColorizeByNameColorDefaultName()
+    {
+        $changeColor = new ChangeColor($this->fileLocation);
+        $changeColor->setFromRGB($this->defaultRedRGB, $this->defaultGreenRGB, $this->defaultBlueRGB);
+        $changeColor->colorizeByNameColor('Red Violet', $this->folderOut);
+
+        $this->assertTrue(file_exists($this->folderOut . 'red_violet.png'));   
+    }
+
+    public function testColorizeByNameColorCustomName()
+    {
+        $changeColor = new ChangeColor($this->fileLocation);
+        $changeColor->setFromRGB($this->defaultRedRGB, $this->defaultGreenRGB, $this->defaultBlueRGB);
+        $changeColor->colorizeByNameColor('Red Violet', $this->folderOut, 'violetinha.png');
+
+        $this->assertTrue(file_exists($this->folderOut . 'violetinha.png'));        
+    }
+ 
     public function testColorizeLoopColors()
     {
+        $changeColor = new ChangeColor($this->fileLocation);
+        $changeColor->setFromRGB($this->defaultRedRGB, $this->defaultGreenRGB, $this->defaultBlueRGB);
 
-        $colors = Colors::getAllColors();
-
-        foreach($colors as $color) {            
+        foreach(Colors::getAllColors() as $color) {            
 
             $targetRed   = $color->rgb[0];
             $targetGreen = $color->rgb[1];
@@ -73,19 +124,33 @@ class ChangeColorTests extends PHPUnit_Framework_TestCase
             $colorNameTmp = str_replace(' ', '_', strtolower($color->name));
             $colorName = str_replace("'", '', $colorNameTmp);             
 
-            $folderOut     = $this->folderOut . $colorName . '.png';
-            $changeColor = new ChangeColor();
-            $changeColor->colorizeKeepAplhaChannnel($this->fileLocation, $targetRed, $targetGreen, $targetBlue, $folderOut);            
+            $folderOut = $this->folderOut . $colorName . '.png';
+
+            $changeColor->setToRGB($targetRed, $targetGreen, $targetBlue);
+            $changeColor->colorizeKeepAplhaChannnel($folderOut);            
         }
 
-
         $this->assertTrue(file_exists($this->folderOut . 'blue.png'));        
-    }   
-
+    }
+      
     public function testColorizeToAllColors()
     {        
-        $changeColor = new ChangeColor();
-        $changeColor->colorizeToAllColors($this->fileLocation, $this->folderOut);
+        $changeColor = new ChangeColor($this->fileLocation);
+        $changeColor->setFromRGB($this->defaultRedRGB, $this->defaultGreenRGB, $this->defaultBlueRGB);
+
+        $resultAllColors = $changeColor->colorizeToAllColors($this->folderOut);
+
+        $finalResult = true;
+        $findFile = true;
+
+        //Check if result is true and file exists
+        foreach($resultAllColors as $result){
+            $finalResult = $finalResult && $result['result'];
+            $findFile = $findFile && file_exists($this->folderOut . $result['file_name']);
+        }
+        
+        $this->assertTrue($finalResult);
+        $this->assertTrue($findFile);
     }
-    
+        
 }

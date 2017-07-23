@@ -1,8 +1,8 @@
 # Colorizzar 
 
 
-Change the color of an image without lose alpha channnel (alpha layer)  
-Altere a cor da sua imagem sem perder a camada de alpha (transparência)
+Change color of an image without lose alpha channnel (alpha layer)  
+Altere a cor da sua imagem sem perder a camada alpha (camada de transparência)
 
 
 You can change the color of this [car](https://github.com/gabrieldarezzo/colorizzar/blob/master/car.png?raw=true) (Or any imagem you want)
@@ -16,14 +16,22 @@ require_once 'vendor/autoload.php';
 
 use Colorizzar\ChangeColor;
 
-$changeColor = new ChangeColor();
-$changeColor->colorizeKeepAplhaChannnel('red_car.png', 31, 117, 254, 'new_blue_car.png');
+$changeColor = new ChangeColor('red_car.png');
+
+//From Red (rgb Params)
+$changeColor->setFromRGB(255, 31, 40);
+
+//To Blue Color (rgb Params)
+$changeColor->setToRGB(135, 206, 235);
+$changeColor->colorizeKeepAplhaChannnel('new_blue_car.png');
+
 ```
 
-Or Just choose one by colorName 
+Or change color name 
 
 ```php
-$changeColor->colorizeByNameColor('Blue', 'car_red.png', 'cars/'); // Will create 'blue.png'
+$changeColor = new ChangeColor('red_car.png');
+$changeColor->colorizeByNameColor('Blue', 'new_cars/'); // Will create 'blue.png'
 ```   
  
  
@@ -39,7 +47,8 @@ Ex of result `colorizeKeepAplhaChannnel()`, `colorizeByNameColor()`
 ![Scheme](doc/to_from.png)  
 
 ```php
-$changeColor->colorizeToAllColors('car_red.png', 'cars/');
+$changeColor = new ChangeColor('red_car.png');
+$changeColor->colorizeToAllColors('cars/');
 ```
 
 
@@ -56,14 +65,42 @@ cd colorizzar
 composer update  
 ```
 
-Don't forget require autoload  
-
+Example of use:
 ```php
 <?php
 
 require_once 'vendor/autoload.php';
 
 use Colorizzar\ChangeColor;
+
+$defaultRedRGB = 255;
+$defaultGreenRGB = 31;
+$defaultBlueRGB = 40;
+
+
+$fileLocation = __DIR__.'./files/car.png';
+$folderOut = __DIR__.'./output/';
+
+
+try {
+
+	$changeColor = new ChangeColor($fileLocation);
+	$changeColor->setFromRGB($defaultRedRGB, $defaultGreenRGB, $defaultBlueRGB);
+
+	//Blue Color
+	$red   = 135;
+	$green = 206;
+	$blue  = 235;
+	$changeColor->setToRGB($red, $green, $blue);
+
+	$fileOut = $folderOut . 'new_blue_car.png';
+	$changeColor->colorizeKeepAplhaChannnel($fileOut);
+
+
+} catch(Exception $ex){
+	print $ex->getMessage();
+	die();
+}
 
 ```
 
@@ -72,8 +109,7 @@ use Colorizzar\ChangeColor;
   - *Create a plugin in JS consume colorizzar and show in realtime result   
   - Add DockBlock in all methods
   - Improve tests (check if has new rgb in image created instead just check if file is created)  
-  - Improve ChangeColor.php SOLID (Create/Read file for example)  
-  - Create some way custom color can be use and re-used in Colorizzar\Colors
+  - Improve ChangeColor.php SOLID
 
 '* 
 1 - Hash create by upload image  
