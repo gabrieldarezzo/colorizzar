@@ -140,4 +140,6 @@ https://www.webpagefx.com/web-design/hex-to-rgb/
 
 
 #### Thanks to:
-https://stackoverflow.com/users/433392/steap
+
+ * [@augustohp](https://github.com/augustohp) for code-review and 'JSON to Class' script on commit [@236b6f3734981d9e7f3758b5b5d8e709687675c3](https://github.com/gabrieldarezzo/colorizzar/pull/1/commits/236b6f3734981d9e7f3758b5b5d8e709687675c3)
+ * https://stackoverflow.com/users/433392/steap
