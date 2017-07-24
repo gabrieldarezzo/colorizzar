@@ -124,12 +124,11 @@ class ChangeColorTests extends \PHPUnit_Framework_TestCase
         $changeColor->setFromRGB($this->defaultRedRGB, $this->defaultGreenRGB, $this->defaultBlueRGB);
 
         foreach (Colors::getAllColors() as $color) {
-            $targetRed   = $color->rgb[0];
-            $targetGreen = $color->rgb[1];
-            $targetBlue  = $color->rgb[2];
-
-            $colorNameTmp = str_replace(' ', '_', strtolower($color->name));
-            $colorName = str_replace("'", '', $colorNameTmp);
+            $rgb = $color->getRgb();
+            $targetRed   = $rgb[0];
+            $targetGreen = $rgb[1];
+            $targetBlue  = $rgb[2];
+            $colorName = $color->getColorName();
 
             $folderOut = $this->folderOut . $colorName . '.png';
 

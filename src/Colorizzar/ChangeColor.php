@@ -171,12 +171,11 @@ class ChangeColor
     {
         $color = Colors::getColorByName($nameColor);
 
-        $targetRed = $color->rgb[0];
-        $targetGreen = $color->rgb[1];
-        $targetBlue = $color->rgb[2];
-
-        $colorNameTmp = str_replace(' ', '_', strtolower($color->name));
-        $colorName = str_replace("'", '', $colorNameTmp);
+        $rgb = $color->getRgb();
+        $targetRed = $rgb[0];
+        $targetGreen = $rgb[1];
+        $targetBlue = $rgb[2];
+        $colorName = $color->getColorName();
 
         if ($fileName == '') {
             $fullName = $folderName . $colorName . '.png';
@@ -198,12 +197,11 @@ class ChangeColor
     {
         $returArr = array();
         foreach (Colors::getAllColors() as $color) {
-            $targetRed = $color->rgb[0];
-            $targetGreen = $color->rgb[1];
-            $targetBlue = $color->rgb[2];
-
-            $colorNameTmp = str_replace(' ', '_', strtolower($color->name));
-            $colorName = str_replace("'", '', $colorNameTmp) . '.png';
+            $rgb = $color->getRgb();
+            $targetRed = $rgb[0];
+            $targetGreen = $rgb[1];
+            $targetBlue = $rgb[2];
+            $colorName = $color->getColorName();
             $fullName = $folderOut . '/' . $colorName;
 
             $this->setToRGB($targetRed, $targetGreen, $targetBlue);
