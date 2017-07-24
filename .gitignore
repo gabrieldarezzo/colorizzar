@@ -1,4 +1,6 @@
 /vendor
 composer.lock
+*.cache
+phpunit.xml
 /tests/output/*
-!/tests/output/.gitkeep 
+!/tests/output/.gitkeep

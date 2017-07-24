@@ -1,40 +1,65 @@
 <?php
 
+namespace Colorizzar\Test;
+
 use Colorizzar\Colors;
 
-class ColorTests extends PHPUnit_Framework_TestCase
-{    
-    public function SetUp()
+class ColorTests extends \PHPUnit_Framework_TestCase
+{
+    /**
+     * @dataProvider provideValidColorName
+     */
+    public function testGetColorByName($name)
     {
+        $color = Colors::getColorByName($name);
 
+        $this->assertInstanceOf(
+            'Colorizzar\\Color\\HtmlColor',
+            $color,
+            sprintf(
+                'Expected color "%s" to exist as a valid class.',
+                $name
+            )
+        );
     }
 
-    public function testArrayColors()
-    {        
-    	$colors = Colors::getAllColors();
-
-    	$this->assertTrue(is_array($colors));
-
-    	$color = $colors[42];
-
-    	//Name
-    	$this->assertEquals($color->name, 'Granny Smith Apple');
-
-    	//R
-    	$this->assertEquals($color->rgb[0], 168);
-    	//G
-    	$this->assertEquals($color->rgb[1], 228);
-    	//B
-    	$this->assertEquals($color->rgb[2], 160);
-
-    	$colorViolet = Colors::getColorByName('Red Violet');
-    	//R
-    	$this->assertEquals($colorViolet->rgb[0], 192);
-    	//G
-    	$this->assertEquals($colorViolet->rgb[1], 68);
-    	//B
-    	$this->assertEquals($colorViolet->rgb[2], 143);
+    public function provideValidColorName()
+    {
+        return [
+            'Single name' => ['Yellow'],
+            'Compund name with space' => ['Yellow Orange'],
+            'Compound name with spaces' => ['Granny Smith Apple'],
+            'Compound name without spaces' => ['RedViolet'],
+        ];
     }
-    
-   
+
+    /**
+     * @dataProvider provideInvalidColorName
+     */
+    public function testGetColorByNameWithNonExistingColor($name)
+    {
+        $this->expectException('InvalidArgumentException');
+        $this->expectExceptionMessageRegExp(
+            '/Color \w+ not found./'
+        );
+
+        Colors::getColorByName($name);
+    }
+
+    public function provideInvalidColorName()
+    {
+        return [
+            'Non exisiting color' => ['Gugu lindo']
+        ];
+    }
+
+    public function testGetAllColors()
+    {
+        $colors = Colors::getAllColors();
+
+        $this->assertCount(
+            133,
+            $colors
+        );
+    }
 }

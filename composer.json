@@ -1,22 +1,39 @@
 {
     "name": "gabrieldarezzo/colorizzar",
     "description": "Change the colors of an image from RGB you want",
-	"license": "MIT",
-    "type": "composer-plugin",  
+    "license": "MIT",
+    "type": "composer-plugin",
     "keywords": ["image", "gd", "rgb", "color", "alpha"],
     "homepage": "https://github.com/gabrieldarezzo/colorizzar",
-	"authors": [
+    "authors": [
         {
             "name": "Gabriel Darezzo",
             "email": "darezzo.gabriel@gmai.com",
             "homepage": "https://inwork.com.br"
         }
-    ],	   
-	"require-dev": {
-        "phpunit/phpunit": "5.5.7"
-        ,"squizlabs/php_codesniffer": "2.*"
-    },	
-	"autoload": {
+    ],
+    "require": {
+        "php": "^5.4.0",
+        "ext-gd":  "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.5.7",
+        "squizlabs/php_codesniffer": "2.*",
+        "friendsofphp/php-cs-fixer": "^2.4"
+    },
+    "scripts": {
+        "test": [
+            "phpunit"
+        ],
+        "ci": [
+            "php-cs-fixer fix ./src",
+            "php-cs-fixer fix ./tests",
+            "phpcs --standard=PSR2 ./src",
+            "phpcs --standard=PSR2 ./tests",
+            "@test"
+        ]
+    },
+    "autoload": {
         "psr-0": {
             "Colorizzar": "src/"
         }

@@ -23,8 +23,10 @@ class ChangeColor
     */
     public function __construct($inputFilePathIn)
     {
-        if(!file_exists($inputFilePathIn)){
-            throw new Exception("Arquivo não existe");
+        if (!file_exists($inputFilePathIn)) {
+            throw new Exception(
+                sprintf('Arquivo "%s" não existe.', $inputFilePathIn)
+            );
         }
 
         $this->filePathIn = $inputFilePathIn;
@@ -62,15 +64,15 @@ class ChangeColor
     */
     public function validateFromRGB()
     {
-        if(!isset($this->fromRed)){
+        if (!isset($this->fromRed)) {
             return false;
         }
 
-        if(!isset($this->fromGreen)){
+        if (!isset($this->fromGreen)) {
             return false;
         }
 
-        if(!isset($this->fromBlue)){
+        if (!isset($this->fromBlue)) {
             return false;
         }
 
@@ -84,15 +86,15 @@ class ChangeColor
     */
     public function validateToRGB()
     {
-        if(!isset($this->toRed)){
+        if (!isset($this->toRed)) {
             return false;
         }
 
-        if(!isset($this->toGreen)){
+        if (!isset($this->toGreen)) {
             return false;
         }
 
-        if(!isset($this->toBlue)){
+        if (!isset($this->toBlue)) {
             return false;
         }
 
@@ -107,12 +109,11 @@ class ChangeColor
     */
     public function colorizeKeepAplhaChannnel($fileOutPath)
     {
-
-        if(!$this->validateFromRGB()){
+        if (!$this->validateFromRGB()) {
             throw new Exception("You should use setFromRGB() method");
         }
 
-        if(!$this->validateToRGB()){
+        if (!$this->validateToRGB()) {
             throw new Exception("You should use setToRGB() method");
         }
 
@@ -136,8 +137,14 @@ class ChangeColor
 
                 $flagFoundColor = true;
 
-                $colorOld = imagecolorallocatealpha($im_src, $colorOldRGB["red"], $colorOldRGB["green"], $colorOldRGB["blue"], 0);
-                
+                $colorOld = imagecolorallocatealpha(
+                    $im_src,
+                    $colorOldRGB["red"],
+                    $colorOldRGB["green"],
+                    $colorOldRGB["blue"],
+                    0
+                );
+
                 $color2Change = imagecolorallocatealpha($im_src, $this->fromRed, $this->fromGreen, $this->fromBlue, 0);
 
                 $flagFoundColor = ($color2Change == $colorOld);
@@ -149,7 +156,7 @@ class ChangeColor
                 }
             }
         }
-        
+
         return imagepng($im_dst, $fileOutPath);
     }
 
@@ -164,12 +171,11 @@ class ChangeColor
     {
         $color = Colors::getColorByName($nameColor);
 
-        $targetRed = $color->rgb[0];
-        $targetGreen = $color->rgb[1];
-        $targetBlue = $color->rgb[2];
-        
-        $colorNameTmp = str_replace(' ', '_', strtolower($color->name));
-        $colorName = str_replace("'", '', $colorNameTmp);
+        $rgb = $color->getRgb();
+        $targetRed = $rgb[0];
+        $targetGreen = $rgb[1];
+        $targetBlue = $rgb[2];
+        $colorName = $color->getColorName();
 
         if ($fileName == '') {
             $fullName = $folderName . $colorName . '.png';
@@ -178,8 +184,8 @@ class ChangeColor
         }
 
         $this->setToRGB($targetRed, $targetGreen, $targetBlue);
-        
-       return $this->colorizeKeepAplhaChannnel($fullName);
+
+        return $this->colorizeKeepAplhaChannnel($fullName);
     }
 
     /**
@@ -191,12 +197,11 @@ class ChangeColor
     {
         $returArr = array();
         foreach (Colors::getAllColors() as $color) {
-            $targetRed = $color->rgb[0];
-            $targetGreen = $color->rgb[1];
-            $targetBlue = $color->rgb[2];
-            
-            $colorNameTmp = str_replace(' ', '_', strtolower($color->name));
-            $colorName = str_replace("'", '', $colorNameTmp) . '.png';
+            $rgb = $color->getRgb();
+            $targetRed = $rgb[0];
+            $targetGreen = $rgb[1];
+            $targetBlue = $rgb[2];
+            $colorName = $color->getColorName();
             $fullName = $folderOut . '/' . $colorName;
 
             $this->setToRGB($targetRed, $targetGreen, $targetBlue);
@@ -210,5 +215,4 @@ class ChangeColor
 
         return $returArr;
     }
-    
 }
