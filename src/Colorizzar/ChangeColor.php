@@ -64,15 +64,7 @@ class ChangeColor
     */
     public function validateFromRGB()
     {
-        if (!isset($this->fromRed)) {
-            return false;
-        }
-
-        if (!isset($this->fromGreen)) {
-            return false;
-        }
-
-        if (!isset($this->fromBlue)) {
+        if (!isset($this->fromRed, $this->fromGreen, $this->fromBlue)) {
             return false;
         }
 
@@ -86,18 +78,10 @@ class ChangeColor
     */
     public function validateToRGB()
     {
-        if (!isset($this->toRed)) {
+        if (!isset($this->toRed, $this->toGreen, $this->toBlue)) {
             return false;
         }
-
-        if (!isset($this->toGreen)) {
-            return false;
-        }
-
-        if (!isset($this->toBlue)) {
-            return false;
-        }
-
+        
         return true;
     }
 

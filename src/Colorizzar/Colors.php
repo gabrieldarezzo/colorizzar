@@ -58,4 +58,17 @@ class Colors
             );
         }
     }
+
+
+    public static function createByHex($hexaDecimal)
+    {
+        foreach(static::getAllColors() as $classColor) {
+            if($classColor->getHex() == $hexaDecimal){
+                return $classColor;
+            }
+        }
+
+        //throw ColorNotFoundException 
+        
+    }
 }

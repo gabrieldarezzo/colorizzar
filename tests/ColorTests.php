@@ -25,7 +25,7 @@ class ColorTests extends \PHPUnit_Framework_TestCase
 
     public function provideValidColorName()
     {
-        return [
+        return (array) [
             'Single name' => ['Yellow'],
             'Compund name with space' => ['Yellow Orange'],
             'Compound name with spaces' => ['Granny Smith Apple'],
@@ -48,7 +48,7 @@ class ColorTests extends \PHPUnit_Framework_TestCase
 
     public function provideInvalidColorName()
     {
-        return [
+        return (array) [
             'Non exisiting color' => ['Gugu lindo']
         ];
     }
@@ -62,4 +62,33 @@ class ColorTests extends \PHPUnit_Framework_TestCase
             $colors
         );
     }
+
+
+    /**
+     * @dataProvider provideValidHexName
+     */
+    public function testCreateByHex($hexaDecimal)
+    {        
+        $colors = Colors::getAllColors();
+
+        $classColor = Colors::createByHex($hexaDecimal);
+
+        $this->assertInstanceOf(
+            'Colorizzar\\Color\\HtmlColor',
+            $classColor,
+            sprintf(
+                'Expected instance of HtmlColor when HexaDecimal "%s" send.',
+                $hexaDecimal
+            )
+        );       
+    }
+
+    public function provideValidHexName()
+    {
+        return (array) [
+            'HexaDecimal Blue' => ['#1F75FE'],
+            'HexaDecimal Red' => ['#EE204D'],            
+        ];
+    }
+
 }
