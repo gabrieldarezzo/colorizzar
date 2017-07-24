@@ -104,9 +104,9 @@ class ChangeColorTests extends \PHPUnit_Framework_TestCase
     {
         $changeColor = new ChangeColor($this->fileLocation);
         $changeColor->setFromRGB($this->defaultRedRGB, $this->defaultGreenRGB, $this->defaultBlueRGB);
-        $changeColor->colorizeByNameColor('Red Violet', $this->folderOut);
+        $result = $changeColor->colorizeByNameColor('Red Violet', $this->folderOut);
 
-        $this->assertTrue(file_exists($this->folderOut . 'red_violet.png'));
+        $this->assertTrue($result);
     }
 
     public function testColorizeByNameColorCustomName()

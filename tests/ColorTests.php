@@ -9,9 +9,9 @@ class ColorTests extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider provideValidColorName
      */
-    public function testGetColorByName($name)
+    public function testCreateByName($name)
     {
-        $color = Colors::getColorByName($name);
+        $color = Colors::createByName($name);
 
         $this->assertInstanceOf(
             'Colorizzar\\Color\\HtmlColor',
@@ -36,14 +36,14 @@ class ColorTests extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider provideInvalidColorName
      */
-    public function testGetColorByNameWithNonExistingColor($name)
+    public function testCreateByNameWithNonExistingColor($name)
     {
         $this->expectException('InvalidArgumentException');
         $this->expectExceptionMessageRegExp(
             '/Color \w+ not found./'
         );
 
-        Colors::getColorByName($name);
+        Colors::createByName($name);
     }
 
     public function provideInvalidColorName()

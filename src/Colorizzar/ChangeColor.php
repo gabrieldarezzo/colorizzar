@@ -25,7 +25,7 @@ class ChangeColor
     {
         if (!file_exists($inputFilePathIn)) {
             throw new Exception(
-                sprintf('Arquivo "%s" não existe.', $inputFilePathIn)
+                sprintf('File "%s" not exists.', $inputFilePathIn)
             );
         }
 
@@ -169,7 +169,7 @@ class ChangeColor
     */
     public function colorizeByNameColor($nameColor, $folderName, $fileName = '')
     {
-        $color = Colors::getColorByName($nameColor);
+        $color = Colors::createByName($nameColor);
 
         $rgb = $color->getRgb();
         $targetRed = $rgb[0];
@@ -195,7 +195,7 @@ class ChangeColor
     */
     public function colorizeToAllColors($folderOut)
     {
-        $returArr = array();
+        $returArr = [];
         foreach (Colors::getAllColors() as $color) {
             $rgb = $color->getRgb();
             $targetRed = $rgb[0];
@@ -207,10 +207,10 @@ class ChangeColor
             $this->setToRGB($targetRed, $targetGreen, $targetBlue);
             $resultFile = $this->colorizeKeepAplhaChannnel($fullName);
 
-            $returArr[] = array(
+            $returArr[] = [
                  'result'    => $resultFile
                 ,'file_name' => $colorName
-            );
+            ];
         }
 
         return $returArr;

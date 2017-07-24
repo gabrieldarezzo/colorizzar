@@ -26,17 +26,14 @@ class Colors
 
             array_push(
                 $colors,
-                static::getColorByName($className)
+                static::createByName($className)
             );
         }
 
         return $colors;
     }
 
-    /**
-     * @TODO Make private and remove `generateColorClasses` script.
-     */
-    public static function normalizeColorToClassName($name)
+    private static function normalizeColorToClassName($name)
     {
         $invalidChars = [' ', '\'', ']', '[', '(', ')'];
         return ucfirst(
@@ -44,10 +41,7 @@ class Colors
         );
     }
 
-    /**
-     * @TODO Rename to `createByName` to better behave as a factory.
-     */
-    public static function getColorByName($name)
+    public static function createByName($name)
     {
         $normalizedName = static::normalizeColorToClassName($name);
         $className = sprintf(self::COLOR_CLASS_NAME_TEMPLATE, $normalizedName);
