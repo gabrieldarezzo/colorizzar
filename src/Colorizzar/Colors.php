@@ -5,6 +5,7 @@ namespace Colorizzar;
 use ReflectionClass;
 use ReflectionException;
 use InvalidArgumentException;
+use Exception;
 
 class Colors
 {
@@ -68,7 +69,9 @@ class Colors
             }
         }
 
-        //throw ColorNotFoundException 
-        
+        throw new Exception(
+            sprintf('File Color not exists HexDecimal used: "%s"', $hexaDecimal)
+        );
+
     }
 }

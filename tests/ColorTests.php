@@ -80,7 +80,9 @@ class ColorTests extends \PHPUnit_Framework_TestCase
                 'Expected instance of HtmlColor when HexaDecimal "%s" send.',
                 $hexaDecimal
             )
-        );       
+        );
+
+        //Test more things
     }
 
     public function provideValidHexName()
@@ -89,6 +91,15 @@ class ColorTests extends \PHPUnit_Framework_TestCase
             'HexaDecimal Blue' => ['#1F75FE'],
             'HexaDecimal Red' => ['#EE204D'],            
         ];
+    }
+
+    /**
+    * @expectedException Exception
+    */
+    public function testValidateNonExistHex()
+    {        
+        $colors = Colors::getAllColors();
+        $blueColor = Colors::createByHex('#ZZZZZZ');
     }
 
 }
