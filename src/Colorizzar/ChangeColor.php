@@ -64,11 +64,7 @@ class ChangeColor
     */
     public function validateFromRGB()
     {
-        if (!isset($this->fromRed, $this->fromGreen, $this->fromBlue)) {
-            return false;
-        }
-
-        return true;
+        return isset($this->fromRed, $this->fromGreen, $this->fromBlue);
     }
 
 
@@ -78,11 +74,7 @@ class ChangeColor
     */
     public function validateToRGB()
     {
-        if (!isset($this->toRed, $this->toGreen, $this->toBlue)) {
-            return false;
-        }
-        
-        return true;
+        return isset($this->toRed, $this->toGreen, $this->toBlue);
     }
 
     /**
@@ -166,6 +158,9 @@ class ChangeColor
         } else {
             $fullName = $folderName . $fileName;
         }
+        
+        // XXX Substituir o teste acima por isso?
+        // $fullName = $folderName . (($fileName == '') ? $colorName . '.png' : $fileName);
 
         $this->setToRGB($targetRed, $targetGreen, $targetBlue);
 
