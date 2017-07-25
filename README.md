@@ -11,7 +11,7 @@ You can change the color of this [car](https://github.com/gabrieldarezzo/coloriz
 You can create specific color by RGB:
 ```php
 <?php
-
+ 
 require_once 'vendor/autoload.php';
 
 use Colorizzar\ChangeColor;
