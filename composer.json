@@ -14,7 +14,8 @@
     ],
     "require": {
         "php": "^5.4.0",
-        "ext-gd":  "*"
+        "ext-gd":  "*",
+		"composer-plugin-api": "1.0.0"
     },
 	"extra": {
         "class": "Colorizzar"
