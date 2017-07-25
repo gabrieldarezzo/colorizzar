@@ -168,14 +168,14 @@ class ChangeColorTests extends \PHPUnit_Framework_TestCase
     {
         return (array) [
             'HexaDecimal Blue' => ['#1F75FE'],
-            'HexaDecimal Red' => ['#EE204D'],            
-            'HexaDecimal VioletBlue' => ['#324AB2'],            
-            'HexaDecimal Orange' => ['#FF7538'],            
+            'HexaDecimal Red' => ['#EE204D'],
+            'HexaDecimal VioletBlue' => ['#324AB2'],
+            'HexaDecimal Orange' => ['#FF7538'],
         ];
     }
 
-    /**     
-     * @dataProvider provideValidHexName     
+    /**
+     * @dataProvider provideValidHexName
     */
     public function testSetAndToToHex($hexaDecimal)
     {

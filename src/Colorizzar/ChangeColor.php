@@ -51,7 +51,7 @@ class ChangeColor
     * @param string $hex HexaDecimal Color
     */
     public function setFromHex($hex)
-    {        
+    {
         list($red, $green, $blue) = CasterColors::hexToRgb($hex);
         $this->fromRed   = $red;
         $this->fromGreen = $green;
@@ -74,7 +74,7 @@ class ChangeColor
 
     /**
     * Set RGB by hexdecimal (to)
-    * @param string $hex HexaDecimal Color    
+    * @param string $hex HexaDecimal Color
     */
     public function setToHex($hex)
     {

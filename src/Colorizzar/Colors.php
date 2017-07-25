@@ -63,8 +63,8 @@ class Colors
 
     public static function createByHex($hexaDecimal)
     {
-        foreach(static::getAllColors() as $classColor) {
-            if($classColor->getHex() == $hexaDecimal){
+        foreach (static::getAllColors() as $classColor) {
+            if ($classColor->getHex() == $hexaDecimal) {
                 return $classColor;
             }
         }
@@ -72,6 +72,5 @@ class Colors
         throw new Exception(
             sprintf('File Color not exists HexDecimal used: "%s"', $hexaDecimal)
         );
-
     }
 }
