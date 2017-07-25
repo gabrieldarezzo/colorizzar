@@ -3,6 +3,7 @@
 namespace Colorizzar;
 
 use Colorizzar\Colors;
+use Colorizzar\CasterColors;
 use Exception;
 
 class ChangeColor
@@ -46,6 +47,19 @@ class ChangeColor
     }
 
     /**
+    * Set RGB by hexdecimal (from)
+    * @param string $hex HexaDecimal Color
+    */
+    public function setFromHex($hex)
+    {        
+        list($red, $green, $blue) = CasterColors::hexToRgb($hex);
+        $this->fromRed   = $red;
+        $this->fromGreen = $green;
+        $this->fromBlue  = $blue;
+    }
+
+
+    /**
     * Set RGB colors To
     * @param int $r color
     * @param int $g color
@@ -59,10 +73,23 @@ class ChangeColor
     }
 
     /**
-    * Check if fromRGB is set
+    * Set RGB by hexdecimal (to)
+    * @param string $hex HexaDecimal Color    
+    */
+    public function setToHex($hex)
+    {
+        list($red, $green, $blue) = CasterColors::hexToRgb($hex);
+        
+        $this->toRed   = $red;
+        $this->toGreen = $green;
+        $this->toBlue  = $blue;
+    }
+
+    /**
+    * Check if RGB is set (from)
     * @return boolean
     */
-    public function validateFromRGB()
+    public function validateFrom()
     {
         if (!isset($this->fromRed, $this->fromGreen, $this->fromBlue)) {
             return false;
@@ -73,75 +100,16 @@ class ChangeColor
 
 
     /**
-    * Check if fromRGB is set
+    * Check if RGB is set (to)
     * @return boolean
     */
-    public function validateToRGB()
+    public function validateTo()
     {
         if (!isset($this->toRed, $this->toGreen, $this->toBlue)) {
             return false;
         }
         
         return true;
-    }
-
-    /**
-    * Check if fromRGB is set
-    * Original content: http://stackoverflow.com/questions/17733805/php-replace-base-color-of-transparent-png-image
-    * @param string $fileOutPath File Path where new file will created
-    * @return boolean
-    */
-    public function colorizeKeepAplhaChannnel($fileOutPath)
-    {
-        if (!$this->validateFromRGB()) {
-            throw new Exception("You should use setFromRGB() method");
-        }
-
-        if (!$this->validateToRGB()) {
-            throw new Exception("You should use setToRGB() method");
-        }
-
-        $im_src = imagecreatefrompng($this->filePathIn);
-        $im_dst = imagecreatefrompng($this->filePathIn);
-        $width = imagesx($im_src);
-        $height = imagesy($im_src);
-
-        // Note this: FILL IMAGE WITH TRANSPARENT BG
-        imagefill($im_dst, 0, 0, IMG_COLOR_TRANSPARENT);
-        imagesavealpha($im_dst, true);
-        imagealphablending($im_dst, true);
-
-        $flagOK = 1;
-        for ($x=0; $x<$width; $x++) {
-            for ($y=0; $y<$height; $y++) {
-                $rgb = imagecolorat($im_src, $x, $y);
-                $colorOldRGB = imagecolorsforindex($im_src, $rgb);
-                $alpha = $colorOldRGB["alpha"];
-                $colorNew = imagecolorallocatealpha($im_src, $this->toRed, $this->toGreen, $this->toBlue, $alpha);
-
-                $flagFoundColor = true;
-
-                $colorOld = imagecolorallocatealpha(
-                    $im_src,
-                    $colorOldRGB["red"],
-                    $colorOldRGB["green"],
-                    $colorOldRGB["blue"],
-                    0
-                );
-
-                $color2Change = imagecolorallocatealpha($im_src, $this->fromRed, $this->fromGreen, $this->fromBlue, 0);
-
-                $flagFoundColor = ($color2Change == $colorOld);
-
-                if (false === $colorNew) {
-                    $flagOK = 0;
-                } elseif ($flagFoundColor) {
-                    imagesetpixel($im_dst, $x, $y, $colorNew);
-                }
-            }
-        }
-
-        return imagepng($im_dst, $fileOutPath);
     }
 
     /**
@@ -198,5 +166,65 @@ class ChangeColor
         }
 
         return $returArr;
+    }
+
+
+    /**
+    * Check if fromRGB is set
+    * Original content: http://stackoverflow.com/questions/17733805/php-replace-base-color-of-transparent-png-image
+    * @param string $fileOutPath File Path where new file will created
+    * @return boolean
+    */
+    public function colorizeKeepAplhaChannnel($fileOutPath)
+    {
+        if (!$this->validateFrom()) {
+            throw new Exception("You should use setFromRGB() method");
+        }
+
+        if (!$this->validateTo()) {
+            throw new Exception("You should use setToRGB() method");
+        }
+
+        $im_src = imagecreatefrompng($this->filePathIn);
+        $im_dst = imagecreatefrompng($this->filePathIn);
+        $width = imagesx($im_src);
+        $height = imagesy($im_src);
+
+        // Note this: FILL IMAGE WITH TRANSPARENT BG
+        imagefill($im_dst, 0, 0, IMG_COLOR_TRANSPARENT);
+        imagesavealpha($im_dst, true);
+        imagealphablending($im_dst, true);
+
+        $flagOK = 1;
+        for ($x=0; $x<$width; $x++) {
+            for ($y=0; $y<$height; $y++) {
+                $rgb = imagecolorat($im_src, $x, $y);
+                $colorOldRGB = imagecolorsforindex($im_src, $rgb);
+                $alpha = $colorOldRGB["alpha"];
+                $colorNew = imagecolorallocatealpha($im_src, $this->toRed, $this->toGreen, $this->toBlue, $alpha);
+
+                $flagFoundColor = true;
+
+                $colorOld = imagecolorallocatealpha(
+                    $im_src,
+                    $colorOldRGB["red"],
+                    $colorOldRGB["green"],
+                    $colorOldRGB["blue"],
+                    0
+                );
+
+                $color2Change = imagecolorallocatealpha($im_src, $this->fromRed, $this->fromGreen, $this->fromBlue, 0);
+
+                $flagFoundColor = ($color2Change == $colorOld);
+
+                if (false === $colorNew) {
+                    $flagOK = 0;
+                } elseif ($flagFoundColor) {
+                    imagesetpixel($im_dst, $x, $y, $colorNew);
+                }
+            }
+        }
+
+        return imagepng($im_dst, $fileOutPath);
     }
 }
