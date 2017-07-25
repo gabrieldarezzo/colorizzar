@@ -153,14 +153,7 @@ class ChangeColor
         $targetBlue = $rgb[2];
         $colorName = $color->getColorName();
 
-        if ($fileName == '') {
-            $fullName = $folderName . $colorName . '.png';
-        } else {
-            $fullName = $folderName . $fileName;
-        }
-        
-        // XXX Substituir o teste acima por isso?
-        // $fullName = $folderName . (($fileName == '') ? $colorName . '.png' : $fileName);
+        $fullName = $folderName . (($fileName == '') ? $colorName . '.png' : $fileName);
 
         $this->setToRGB($targetRed, $targetGreen, $targetBlue);
 
