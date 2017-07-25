@@ -91,11 +91,7 @@ class ChangeColor
     */
     public function validateFrom()
     {
-        if (!isset($this->fromRed, $this->fromGreen, $this->fromBlue)) {
-            return false;
-        }
-
-        return true;
+        return isset($this->fromRed, $this->fromGreen, $this->fromBlue);
     }
 
 
@@ -105,69 +101,8 @@ class ChangeColor
     */
     public function validateTo()
     {
-        if (!isset($this->toRed, $this->toGreen, $this->toBlue)) {
-            return false;
-        }
-        
-        return true;
+        return isset($this->toRed, $this->toGreen, $this->toBlue);
     }
-
-    /**
-    * Will recive color name and will replace
-    * @param string $nameColor
-    * @param string $folderName Save file in this folder
-    * @param string $fileName (optional) If you don't send nothing will get sanitize name of color, ex: 'red_violet.png'
-    * @return boolean
-    */
-    public function colorizeByNameColor($nameColor, $folderName, $fileName = '')
-    {
-        $color = Colors::createByName($nameColor);
-
-        $rgb = $color->getRgb();
-        $targetRed = $rgb[0];
-        $targetGreen = $rgb[1];
-        $targetBlue = $rgb[2];
-        $colorName = $color->getColorName();
-
-        if ($fileName == '') {
-            $fullName = $folderName . $colorName . '.png';
-        } else {
-            $fullName = $folderName . $fileName;
-        }
-
-        $this->setToRGB($targetRed, $targetGreen, $targetBlue);
-
-        return $this->colorizeKeepAplhaChannnel($fullName);
-    }
-
-    /**
-    * Will Loop all colors and create a new file with a new color
-    * @param string $folderName Where save all new files
-    * @return Array
-    */
-    public function colorizeToAllColors($folderOut)
-    {
-        $returArr = [];
-        foreach (Colors::getAllColors() as $color) {
-            $rgb = $color->getRgb();
-            $targetRed = $rgb[0];
-            $targetGreen = $rgb[1];
-            $targetBlue = $rgb[2];
-            $colorName = $color->getColorName();
-            $fullName = $folderOut . '/' . $colorName;
-
-            $this->setToRGB($targetRed, $targetGreen, $targetBlue);
-            $resultFile = $this->colorizeKeepAplhaChannnel($fullName);
-
-            $returArr[] = [
-                 'result'    => $resultFile
-                ,'file_name' => $colorName
-            ];
-        }
-
-        return $returArr;
-    }
-
 
     /**
     * Check if fromRGB is set
@@ -226,5 +161,57 @@ class ChangeColor
         }
 
         return imagepng($im_dst, $fileOutPath);
+    }
+
+    /**
+    * Will recive color name and will replace
+    * @param string $nameColor
+    * @param string $folderName Save file in this folder
+    * @param string $fileName (optional) If you don't send nothing will get sanitize name of color, ex: 'red_violet.png'
+    * @return boolean
+    */
+    public function colorizeByNameColor($nameColor, $folderName, $fileName = '')
+    {
+        $color = Colors::createByName($nameColor);
+
+        $rgb = $color->getRgb();
+        $targetRed = $rgb[0];
+        $targetGreen = $rgb[1];
+        $targetBlue = $rgb[2];
+        $colorName = $color->getColorName();
+
+        $fullName = $folderName . (($fileName == '') ? $colorName . '.png' : $fileName);
+
+        $this->setToRGB($targetRed, $targetGreen, $targetBlue);
+
+        return $this->colorizeKeepAplhaChannnel($fullName);
+    }
+
+    /**
+    * Will Loop all colors and create a new file with a new color
+    * @param string $folderName Where save all new files
+    * @return Array
+    */
+    public function colorizeToAllColors($folderOut)
+    {
+        $returArr = [];
+        foreach (Colors::getAllColors() as $color) {
+            $rgb = $color->getRgb();
+            $targetRed = $rgb[0];
+            $targetGreen = $rgb[1];
+            $targetBlue = $rgb[2];
+            $colorName = $color->getColorName();
+            $fullName = $folderOut . '/' . $colorName;
+
+            $this->setToRGB($targetRed, $targetGreen, $targetBlue);
+            $resultFile = $this->colorizeKeepAplhaChannnel($fullName);
+
+            $returArr[] = [
+                 'result'    => $resultFile
+                ,'file_name' => $colorName
+            ];
+        }
+
+        return $returArr;
     }
 }
