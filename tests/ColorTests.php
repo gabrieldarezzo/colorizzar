@@ -80,9 +80,7 @@ class ColorTests extends \PHPUnit_Framework_TestCase
                 'Expected instance of HtmlColor when HexaDecimal "%s" send.',
                 $hexaDecimal
             )
-        );
-
-        //Test more things
+        );        
     }
 
     public function provideValidHexName()

@@ -5,6 +5,9 @@ namespace Colorizzar\Test;
 use Colorizzar\ChangeColor;
 use Colorizzar\Colors;
 
+
+use Colorizzar\CasterColors;
+
 class ChangeColorTests extends \PHPUnit_Framework_TestCase
 {
     private $fileLocation;
@@ -14,6 +17,8 @@ class ChangeColorTests extends \PHPUnit_Framework_TestCase
     private $defaultRedRGB = 255;
     private $defaultGreenRGB = 31;
     private $defaultBlueRGB = 40;
+    
+    private $defaultHex = '#FF1F28';
 
     public function setUp()
     {
@@ -157,5 +162,30 @@ class ChangeColorTests extends \PHPUnit_Framework_TestCase
 
         $this->assertTrue($finalResult);
         $this->assertTrue($findFile);
+    }
+    
+    public function provideValidHexName()
+    {
+        return (array) [
+            'HexaDecimal Blue' => ['#1F75FE'],
+            'HexaDecimal Red' => ['#EE204D'],            
+            'HexaDecimal VioletBlue' => ['#324AB2'],            
+            'HexaDecimal Orange' => ['#FF7538'],            
+        ];
+    }
+
+    /**     
+     * @dataProvider provideValidHexName     
+    */
+    public function testSetAndToToHex($hexaDecimal)
+    {
+        $changeColor = new ChangeColor($this->fileLocation);
+        $changeColor->setFromHex($this->defaultHex);
+
+        $changeColor->setToHex($hexaDecimal);
+        $fileOut = $this->folderOut . $hexaDecimal . '.png';
+        $changeColor->colorizeKeepAplhaChannnel($fileOut);
+
+        $this->assertTrue(file_exists($fileOut));
     }
 }

@@ -3,6 +3,7 @@
 namespace Colorizzar;
 
 use Colorizzar\Colors;
+use Colorizzar\CasterColors;
 use Exception;
 
 class ChangeColor
@@ -46,6 +47,19 @@ class ChangeColor
     }
 
     /**
+    * Set RGB by hexdecimal (from)
+    * @param string $hex HexaDecimal Color
+    */
+    public function setFromHex($hex)
+    {        
+        list($red, $green, $blue) = CasterColors::hexToRgb($hex);
+        $this->fromRed   = $red;
+        $this->fromGreen = $green;
+        $this->fromBlue  = $blue;
+    }
+
+
+    /**
     * Set RGB colors To
     * @param int $r color
     * @param int $g color
@@ -59,20 +73,33 @@ class ChangeColor
     }
 
     /**
-    * Check if fromRGB is set
+    * Set RGB by hexdecimal (to)
+    * @param string $hex HexaDecimal Color    
+    */
+    public function setToHex($hex)
+    {
+        list($red, $green, $blue) = CasterColors::hexToRgb($hex);
+        
+        $this->toRed   = $red;
+        $this->toGreen = $green;
+        $this->toBlue  = $blue;
+    }
+
+    /**
+    * Check if RGB is set (from)
     * @return boolean
     */
-    public function validateFromRGB()
+    public function validateFrom()
     {
         return isset($this->fromRed, $this->fromGreen, $this->fromBlue);
     }
 
 
     /**
-    * Check if fromRGB is set
+    * Check if RGB is set (to)
     * @return boolean
     */
-    public function validateToRGB()
+    public function validateTo()
     {
         return isset($this->toRed, $this->toGreen, $this->toBlue);
     }
@@ -85,11 +112,11 @@ class ChangeColor
     */
     public function colorizeKeepAplhaChannnel($fileOutPath)
     {
-        if (!$this->validateFromRGB()) {
+        if (!$this->validateFrom()) {
             throw new Exception("You should use setFromRGB() method");
         }
 
-        if (!$this->validateToRGB()) {
+        if (!$this->validateTo()) {
             throw new Exception("You should use setToRGB() method");
         }
 
