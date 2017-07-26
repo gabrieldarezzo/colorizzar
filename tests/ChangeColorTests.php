@@ -4,8 +4,6 @@ namespace Colorizzar\Test;
 
 use Colorizzar\ChangeColor;
 use Colorizzar\Colors;
-
-
 use Colorizzar\CasterColors;
 
 class ChangeColorTests extends \PHPUnit_Framework_TestCase
@@ -171,6 +169,7 @@ class ChangeColorTests extends \PHPUnit_Framework_TestCase
             'HexaDecimal Red' => ['#EE204D'],
             'HexaDecimal VioletBlue' => ['#324AB2'],
             'HexaDecimal Orange' => ['#FF7538'],
+            'HexaDecimal TorchRed' => ['#FF1F28'],
         ];
     }
 

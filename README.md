@@ -106,12 +106,14 @@ try {
 
 
 ### TODO-LIST:
-  - *Create a plugin in JS consume colorizzar and show in realtime result   
+  - Improve tests (check in image created has new rgb expected)  
+  - IMPROVE TODOLIST and update readme with new methods (hexadecimal)
+  - (almost done) Create a WebService recive a file and manipulate methods to create dynamic
+  - Create a plugin in JS consume colorizzar and show in realtime result   
   - (done) Add DockBlock in all methods
-  - Improve tests (check if has new rgb in image created instead just check if file is created)  
   - (done) Improve ChangeColor.php SOLID
 
-'* 
+
 1 - Hash create by upload image  
 2 - create a folder with same name of hash  
 3 - result a JSON with all urls created  

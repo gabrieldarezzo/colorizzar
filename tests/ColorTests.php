@@ -58,7 +58,7 @@ class ColorTests extends \PHPUnit_Framework_TestCase
         $colors = Colors::getAllColors();
 
         $this->assertCount(
-            133,
+            134,
             $colors
         );
     }
@@ -88,6 +88,7 @@ class ColorTests extends \PHPUnit_Framework_TestCase
         return (array) [
             'HexaDecimal Blue' => ['#1F75FE'],
             'HexaDecimal Red' => ['#EE204D'],
+            'HexaDecimal TorchRed' => ['#FF1F28'],
         ];
     }
 

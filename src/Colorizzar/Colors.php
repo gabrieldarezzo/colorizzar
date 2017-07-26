@@ -11,6 +11,11 @@ class Colors
 {
     const COLOR_CLASS_NAME_TEMPLATE = 'Colorizzar\\Color\\%s';
 
+
+    /**
+    * Return array with all colors in project
+    * @return array
+    */
     public static function getAllColors()
     {
         $colors = [];
@@ -34,6 +39,10 @@ class Colors
         return $colors;
     }
 
+    /**
+    * Normalize Class Name
+    * @return string
+    */
     private static function normalizeColorToClassName($name)
     {
         $invalidChars = [' ', '\'', ']', '[', '(', ')'];
@@ -42,6 +51,11 @@ class Colors
         );
     }
 
+    /**
+    * Return a instance of Colors by name color
+    * @param string $name File Path where new file will created
+    * @return Colors
+    */
     public static function createByName($name)
     {
         $normalizedName = static::normalizeColorToClassName($name);
@@ -60,7 +74,11 @@ class Colors
         }
     }
 
-
+    /**
+    * Return a instance of Colors by hexadecimal, Ex: '#1F75FE'
+    * @param string $name File Path where new file will created
+    * @return Colors
+    */
     public static function createByHex($hexaDecimal)
     {
         foreach (static::getAllColors() as $classColor) {
