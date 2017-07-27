@@ -6,6 +6,13 @@ use Colorizzar\Colors;
 
 class ColorTests extends \PHPUnit_Framework_TestCase
 {
+    private $fileLocation;
+
+    public function setUp()
+    {
+        $this->fileLocation = __DIR__.'/files/car.png';
+    }
+
     /**
      * @dataProvider provideValidColorName
      */
@@ -99,5 +106,51 @@ class ColorTests extends \PHPUnit_Framework_TestCase
     {
         $colors = Colors::getAllColors();
         $blueColor = Colors::createByHex('#ZZZZZZ');
+    }
+
+    
+    public function testGetAllUniqueColors()
+    {
+        $uniqueColorsArr = Colors::getAllUniqueHexColors($this->fileLocation);
+        $this->assertTrue(is_array($uniqueColorsArr));
+        $this->assertCount(
+            36,
+            $uniqueColorsArr,
+            'Should be 36 colors red, black and shades of gray' //Ohhh Grey
+        );
+    }
+
+
+    public function provideValidColors()
+    {
+        return (array) [
+            'HexaDecimal TorchRed' => ['#FF1F28'],
+            'RGB TorchRed' => [255, 31, 40],
+        ];
+    }
+
+    /**
+     * @dataProvider provideValidColors
+     */
+    public function testContainsThisColors($color)
+    {
+        $uniqueColorsArr = Colors::getAllUniqueHexColors($this->fileLocation);
+
+        $containColor = Colors::containsThisColor($color, $uniqueColorsArr);
+        $this->assertTrue($containColor);
+    }
+
+
+    public function testNotFoundThisColor()
+    {
+        $uniqueColorsArr = Colors::getAllUniqueHexColors($this->fileLocation);
+
+        //Valid Color #324AB2 -> VioletBlue/Hexadecimal
+        $containColor = Colors::containsThisColor('#324AB2', $uniqueColorsArr);
+        $this->assertFalse($containColor);
+
+        //Valid Color #324AB2 -> VioletBlue/Rgb
+        $containColor = Colors::containsThisColor([50, 74, 178], $uniqueColorsArr);
+        $this->assertFalse($containColor);
     }
 }
