@@ -14,14 +14,19 @@ class ColorizzarWebService
 
         if ($customFolder != '') {
             $carFileName->setUploadPath($customFolder);
+            $customFolder =  $customFolder . DIRECTORY_SEPARATOR;
+        } else {
+            //Get Default folder in this case
+            $customFolder = $carFileName->getUploadPath() . DIRECTORY_SEPARATOR;
         }
 
-        $carFileName->upload($file, UploadFile::generateHash() . '.png');
+        $newNameFile = UploadFile::generateHash() . '.png';
+        $carFileName->upload($file, $newNameFile);
         $customName = $carFileName->getCustomNameFile();
         
         $changeColor = new ChangeColor($carFileName->getFullPathFile());
         $changeColor->setFromHex($colorFrom->getHex());
         $changeColor->setToHex($colorTo->getHex());
-        return $changeColor->colorizeKeepAplhaChannnel($customFolder . '/' . $customName);
+        return $changeColor->colorizeKeepAplhaChannnel($customFolder . $customName);
     }
 }

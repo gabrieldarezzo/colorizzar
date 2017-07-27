@@ -137,6 +137,24 @@ Fix a Folder
 
 
 
+Run a specific test  
+
+
+```php
+
+   /**
+    * @group upload
+    */
+    public....
+```
+
+
+```batch
+phpunit --group upload
+```
+
+
+
 ### Don't know RGB color of your HEX?!  
 https://www.webpagefx.com/web-design/hex-to-rgb/
 

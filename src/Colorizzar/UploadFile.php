@@ -2,6 +2,9 @@
 
 namespace Colorizzar;
 
+use Exception;
+use RuntimeException;
+
 class UploadFile
 {
     private $UploadPath = 'uploads';
@@ -14,17 +17,29 @@ class UploadFile
     */
     public function setUploadPath($path)
     {
+        //var_dump($path);
         $this->UploadPath = $path;
         return $this;
+    }
+
+    /**
+    * Get Actual [or default] uploadFile
+    * @return string
+    */
+    public function getUploadPath()
+    {
+        return $this->UploadPath;
     }
 
 
     /**
     * @param string $customNameFile
+    * @return Colorizzar
     */
     public function setCustomNameFile($customNameFile)
     {
         $this->customNameFile = $customNameFile;
+        return $this;
     }
 
     /**
@@ -65,39 +80,44 @@ class UploadFile
     */
     public function upload(array $file, $customNameFile = '')
     {
-        static::handle();
+        $this->handle($file);
 
         $name = (($customNameFile == '') ? $file['arquivo']['name'] : $customNameFile);
         $tmp_name = $file['arquivo']['tmp_name'];
         $this->setCustomNameFile($name);
-        
-        $upload_dir = $this->UploadPath . DIRECTORY_SEPARATOR . $name;
 
-        $this->setFullPathFile($upload_dir);   
+
+        $upload_dir = $this->UploadPath . DIRECTORY_SEPARATOR . $name;
+        //var_dump($upload_dir);
+        //var_dump($name);
+
+        $this->setFullPathFile($upload_dir);
             
+        //Make my life easy to test, if not upload just copy
         if (!is_uploaded_file($tmp_name)) {
-            return static::copyImage($tmp_name, $upload_dir);
+            return copy($tmp_name, $upload_dir);
+            //return static::copyImage($tmp_name, $upload_dir);
         }
-            
-        return static::moveImage($tmp_name, $upload_dir);
+        
+        return static::moveUpload($tmp_name, $upload_dir);
     }
 
-	/**
+    /**
     * Responsible for conditional verification
     * @return void
     */
-    protected static function handle(array $file)
+    private function handle(array $file)
     {
-        if( empty( $file ) ) {
-            return throw new \RuntimeException('File not defined');
-        }    
+        if (empty($file)) {
+            throw new RuntimeException('File not defined');
+        }
         
-        if(! file_exists( $this->UploadPath) ) {
-            mkdir( $this->UploadPath );
+        if (! file_exists($this->UploadPath)) {
+            mkdir($this->UploadPath);
         }
         
         if ($file['arquivo']['error'] !== UPLOAD_ERR_OK) {
-            return throw new \Exception($file['arquivo']['error']); 
+            throw new Exception($file['arquivo']['error']);
         }
     }
 
@@ -114,8 +134,19 @@ class UploadFile
     * Move image.
     * @return bool
     */
-    protected static function moveImage($tmp_name, $dir)
+    protected static function moveUpload($tmp_name, $dir)
     {
         return move_uploaded_file($tmp_name, $dir);
+    }
+
+
+    /**
+    * Return Image Type
+    * @param string $nameFile
+    * @return int
+    */
+    public static function getImageType($nameFile)
+    {
+        return getimagesize($nameFile)[2];
     }
 }

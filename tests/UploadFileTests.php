@@ -37,7 +37,9 @@ class UploadFileTests extends \PHPUnit_Framework_TestCase
         ];
     }
     
-   
+    /**
+    * @group upload
+    */
     public function testUploadFileDiferentUploadPath()
     {
         $uploadClass = (new UploadFile)
@@ -58,14 +60,15 @@ class UploadFileTests extends \PHPUnit_Framework_TestCase
         $this->assertEquals($customName, $carFileName->getCustomNameFile());
     }
 
+    /**
+    * @expectedException RuntimeException
+    */
     public function testUploadFileWithWrongArray()
     {
         $uploadClass = (new UploadFile)
             ->setUploadPath($this->folderOut)
             ->upload([])
         ;
-
-        $this->assertFalse($uploadClass);
     }
 
     public function testGenerateHashLenght()
@@ -76,5 +79,10 @@ class UploadFileTests extends \PHPUnit_Framework_TestCase
     public function testGenerateHashUnique()
     {
         $this->assertNotEquals(UploadFile::generateHash(), UploadFile::generateHash());
+    }
+
+    public function testTypeImage()
+    {
+        $this->assertEquals(UploadFile::getImageType($this->fileLocation), IMAGETYPE_PNG);
     }
 }
