@@ -102,6 +102,9 @@ try {
 	$changeColor = new ChangeColor($fileLocation);
 	$changeColor->setFromRGB($defaultRedRGB, $defaultGreenRGB, $defaultBlueRGB);
 
+    //You can use by Hexadecimal too, Example:
+    //$changeColor->setFromHex('#FF1F28');
+
 	//Blue Color
 	$red   = 135;
 	$green = 206;
