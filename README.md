@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/gabrieldarezzo/colorizzar.svg?branch=master)](https://travis-ci.org/gabrieldarezzo/colorizzar/)
-[![Coverage Status](https://coveralls.io/repos/github/gabrieldarezzo/colorizzar/badge.svg?branch=master)](https://coveralls.io/github/gabrieldarezzo/colorizzar?branch=master)  
+[![Coverage Status](https://coveralls.io/repos/github/gabrieldarezzo/colorizzar/badge.svg?branch=master)](https://coveralls.io/github/gabrieldarezzo/colorizzar?branch=master)
+[![Version](https://img.shields.io/packagist/v/gabrieldarezzo/colorizzar.svg)](https://packagist.org/packages/gabrieldarezzo/colorizzar)
+[![Total Downloads](https://img.shields.io/packagist/dt/gabrieldarezzo/colorizzar.svg)](https://packagist.org/packages/gabrieldarezzo/colorizzar)  
 
 # Colorizzar 
 
