@@ -69,6 +69,16 @@ composer update
 ```
 
 Example of use:
+
+Run composer: 
+```
+composer require gabrieldarezzo/colorizzar:dev-master
+```
+
+And create index.php with this content:
+
+
+
 ```php
 <?php
 
