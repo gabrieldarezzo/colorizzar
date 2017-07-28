@@ -136,19 +136,28 @@ try {
 
 
 
-```batch
-//List things to-do in Folder before commit:
-.\vendor\bin\phpcs --standard=PSR2 src\
-
-//Fix File!
-.\vendor\bin\phpcbf --standard=PSR2 src\file.php
-
-Fix a Folder
-.\vendor\bin\phpcbf --standard=PSR2 src\ -w --no-patch
-
-//Don't Forget check if you don't break anything hehe. You need test manually #NOT
-.\vendor\bin\phpunit
+You should use in dev-mode
 ```
+"require-dev": {
+	"phpunit/phpunit": "5.5.7",
+	"squizlabs/php_codesniffer": "2.*",
+	"friendsofphp/php-cs-fixer": "^2.4"
+},
+"scripts": {
+	"test": [
+		"phpunit"
+	],
+	"ci": [
+		"php-cs-fixer fix ./src",
+		"php-cs-fixer fix ./tests",
+		"phpcs --standard=PSR2 ./src",
+		"phpcs --standard=PSR2 ./tests",
+		"@test"
+	]
+}
+```
+
+And run `composer ci`
 
 
 

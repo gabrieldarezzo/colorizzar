@@ -24,6 +24,13 @@
     "scripts": {
         "test": [
             "phpunit"
+        ],
+        "ci": [
+            "php-cs-fixer fix ./src",
+            "php-cs-fixer fix ./tests",
+            "phpcs --standard=PSR2 ./src",
+            "phpcs --standard=PSR2 ./tests",
+            "@test"
         ]
     },
     "autoload": {
