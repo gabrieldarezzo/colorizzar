@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b6175f509f32e0727cbe8858bb5b85e",
+    "content-hash": "5b7cab536e0a22fbf725ceb90dce364f",
     "packages": [],
     "packages-dev": [
         {
@@ -59,7 +59,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2015-06-14 21:17:01"
+            "time": "2015-06-14T21:17:01+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -113,7 +113,7 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2017-04-30 11:58:12"
+            "time": "2017-04-30T11:58:12+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -268,7 +268,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2017-07-19 07:44:25"
+            "time": "2017-07-19T07:44:25+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -330,7 +330,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-10-06 15:47:00"
+            "time": "2015-10-06T15:47:00+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -377,7 +377,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2016-10-03 07:40:28"
+            "time": "2016-10-03T07:40:28+00:00"
         },
         {
             "name": "phpunit/php-text-template",
@@ -467,7 +467,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2017-03-07 15:42:04"
+            "time": "2017-03-07T15:42:04+00:00"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -516,7 +516,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-03-07 08:21:50"
+            "time": "2017-03-07T08:21:50+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -588,7 +588,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-06-23 12:44:27"
+            "time": "2017-06-23T12:44:27+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -644,7 +644,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2015-10-02 06:51:40"
+            "time": "2015-10-02T06:51:40+00:00"
         },
         {
             "name": "sebastian/comparator",
@@ -708,7 +708,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2017-03-07 10:34:43"
+            "time": "2017-03-07T10:34:43+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -760,7 +760,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-05-22 07:24:03"
+            "time": "2017-05-22T07:24:03+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -810,7 +810,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2017-02-28 08:18:59"
+            "time": "2017-02-28T08:18:59+00:00"
         },
         {
             "name": "sebastian/exporter",
@@ -877,7 +877,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2017-02-26 13:09:30"
+            "time": "2017-02-26T13:09:30+00:00"
         },
         {
             "name": "sebastian/global-state",
@@ -928,7 +928,7 @@
             "keywords": [
                 "global state"
             ],
-            "time": "2017-02-23 14:11:06"
+            "time": "2017-02-23T14:11:06+00:00"
         },
         {
             "name": "sebastian/recursion-context",
@@ -981,7 +981,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2016-10-03 07:41:43"
+            "time": "2016-10-03T07:41:43+00:00"
         },
         {
             "name": "sebastian/version",
@@ -1071,7 +1071,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-26 06:46:38"
+            "time": "2017-07-26T06:46:38+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -1121,7 +1121,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2016-11-23 20:04:41"
+            "time": "2016-11-23T20:04:41+00:00"
         }
     ],
     "aliases": [],
