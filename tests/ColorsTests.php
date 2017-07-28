@@ -111,7 +111,7 @@ class ColorTests extends \PHPUnit_Framework_TestCase
     
     public function testGetAllUniqueColors()
     {
-        $uniqueColorsArr = Colors::getAllUniqueHexColors($this->fileLocation);
+        $uniqueColorsArr = Colors::getAllUniqueRgbColors($this->fileLocation);
         $this->assertTrue(is_array($uniqueColorsArr));
         $this->assertCount(
             36,
@@ -134,7 +134,7 @@ class ColorTests extends \PHPUnit_Framework_TestCase
      */
     public function testContainsThisColors($color)
     {
-        $uniqueColorsArr = Colors::getAllUniqueHexColors($this->fileLocation);
+        $uniqueColorsArr = Colors::getAllUniqueRgbColors($this->fileLocation);
 
         $containColor = Colors::containsThisColor($color, $uniqueColorsArr);
         $this->assertTrue($containColor);
@@ -143,7 +143,7 @@ class ColorTests extends \PHPUnit_Framework_TestCase
 
     public function testNotFoundThisColor()
     {
-        $uniqueColorsArr = Colors::getAllUniqueHexColors($this->fileLocation);
+        $uniqueColorsArr = Colors::getAllUniqueRgbColors($this->fileLocation);
 
         //Valid Color #324AB2 -> VioletBlue/Hexadecimal
         $containColor = Colors::containsThisColor('#324AB2', $uniqueColorsArr);
@@ -151,6 +151,26 @@ class ColorTests extends \PHPUnit_Framework_TestCase
 
         //Valid Color #324AB2 -> VioletBlue/Rgb
         $containColor = Colors::containsThisColor([50, 74, 178], $uniqueColorsArr);
+        $this->assertFalse($containColor);
+    }
+
+    /**
+     * @dataProvider provideValidColors
+     */
+    public function testContainsThisColorsByFile($color)
+    {
+        $containColor = Colors::containsThisColorByFile($color, $this->fileLocation);
+        $this->assertTrue($containColor);
+    }
+
+    public function testNotFoundThisColorByFile()
+    {
+        //Valid Color #324AB2 -> VioletBlue/Hexadecimal
+        $containColor = Colors::containsThisColorByFile('#324AB2', $this->fileLocation);
+        $this->assertFalse($containColor);
+
+        //Valid Color #324AB2 -> VioletBlue/Rgb
+        $containColor = Colors::containsThisColorByFile([50, 74, 178], $this->fileLocation);
         $this->assertFalse($containColor);
     }
 }

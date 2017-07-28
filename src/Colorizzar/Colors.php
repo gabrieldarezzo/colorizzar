@@ -102,7 +102,7 @@ class Colors
     * @param string $name File Path where new file will created
     * @return array
     */
-    public static function getAllUniqueHexColors($filePathIn)
+    public static function getAllUniqueRgbColors($filePathIn)
     {
         if (!file_exists($filePathIn)) {
             throw new Exception(
@@ -118,13 +118,7 @@ class Colors
 
         for ($x=0; $x < $width; $x++) {
             for ($y=0; $y < $height; $y++) {
-                $rgb = imagecolorat($im_src, $x, $y);
-                
-                $r = ($rgb >> 16) & 0xFF;
-                $g = ($rgb >> 8) & 0xFF;
-                $b = $rgb & 0xFF;
-                
-                $rgbLoop = [$r, $g, $b];
+                $rgbLoop = CasterColors::indexColorToRgb($im_src, $x, $y);
                 
                 $isUnique = true;
                 for ($i = 0; $i < count($uniqueRgb); $i++) {
@@ -145,9 +139,9 @@ class Colors
         return $uniqueRgb;
     }
 
-
     /**
     * Check if contains hexadecimal color in image
+    * TODO Improve performace this function
     * @param mixed[string hexaDecimal /array rgb] Accept Hexadecimal or rgb
     * @return boolean
     */
@@ -167,5 +161,16 @@ class Colors
         }
 
         return false;
+    }
+
+    /**
+    * Check if contains [hexadecimal/rgb] in image
+    * @param mixed[string hexaDecimal /array rgb] Accept Hexadecimal or rgb
+    * @return boolean
+    */
+    public static function containsThisColorByFile($color, $pathImage)
+    {
+        $uniqueColorsArr = self::getAllUniqueRgbColors($pathImage);
+        return self::containsThisColor($color, $uniqueColorsArr);
     }
 }

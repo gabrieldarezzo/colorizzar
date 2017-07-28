@@ -214,13 +214,4 @@ class ChangeColor
 
         return $returArr;
     }
-
-    /**
-    * Return array with all unique colors
-    * @return array
-    */
-    public function getUniqueColors()
-    {
-        return Colors::getAllUniqueHexColors($this->filePathIn);
-    }
 }
