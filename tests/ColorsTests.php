@@ -42,14 +42,10 @@ class ColorTests extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider provideInvalidColorName
-     */
+     * @expectedException InvalidArgumentException
+     */    
     public function testCreateByNameWithNonExistingColor($name)
     {
-        $this->expectException('InvalidArgumentException');
-        $this->expectExceptionMessageRegExp(
-            '/Color \w+ not found./'
-        );
-
         Colors::createByName($name);
     }
 
