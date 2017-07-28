@@ -1,8 +1,7 @@
 {
     "name": "gabrieldarezzo/colorizzar",
-    "description": "Change the colors of an image from RGB you want",
+    "description": "Change the colors of an image without lose alpha channnel",
     "license": "MIT",
-    "type": "composer-plugin",
     "keywords": ["image", "gd", "rgb", "color", "alpha"],
     "homepage": "https://github.com/gabrieldarezzo/colorizzar",
     "authors": [
@@ -13,9 +12,8 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0",
+        "php": ">=5.6.0",
         "ext-gd":  "*",
-		"composer-plugin-api": "*"
     },
 	"extra": {
         "class": "Colorizzar"
@@ -41,5 +39,6 @@
         "psr-0": {
             "Colorizzar": "src/"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }

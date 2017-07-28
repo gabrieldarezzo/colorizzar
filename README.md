@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/gabrieldarezzo/colorizzar.svg?branch=master)](https://travis-ci.org/gabrieldarezzo/colorizzar/)
-[![Coverage Status](https://coveralls.io/repos/github/gabrieldarezzo/colorizzar/badge.svg?branch=master)](https://coveralls.io/github/gabrieldarezzo/colorizzar?branch=master)
-=================
+[![Coverage Status](https://coveralls.io/repos/github/gabrieldarezzo/colorizzar/badge.svg?branch=master)](https://coveralls.io/github/gabrieldarezzo/colorizzar?branch=master)  
 
 # Colorizzar 
 
