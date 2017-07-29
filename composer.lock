@@ -181,7 +181,7 @@
                 "lexer",
                 "parser"
             ],
-            "time": "2017-07-24T09:37:08+00:00"
+            "time": "2017-07-24 09:37:08"
         },
         {
             "name": "friendsofphp/php-cs-fixer",
@@ -264,7 +264,7 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2017-07-29T12:02:28+00:00"
+            "time": "2017-07-29 12:02:28"
         },
         {
             "name": "gecko-packages/gecko-php-unit",
@@ -983,7 +983,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10T12:19:37+00:00"
+            "time": "2016-10-10 12:19:37"
         },
         {
             "name": "sebastian/comparator",
@@ -1503,7 +1503,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-22T18:13:43+00:00"
+            "time": "2017-07-22 18:13:43"
         },
         {
             "name": "symfony/debug",
@@ -1559,7 +1559,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-28T15:30:20+00:00"
+            "time": "2017-07-28 15:30:20"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -1622,7 +1622,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-12T16:03:21+00:00"
+            "time": "2017-06-12 16:03:21"
         },
         {
             "name": "symfony/filesystem",
@@ -1671,7 +1671,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-11T07:19:17+00:00"
+            "time": "2017-07-11 07:19:17"
         },
         {
             "name": "symfony/finder",
@@ -1720,7 +1720,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-01T21:02:15+00:00"
+            "time": "2017-06-01 21:02:15"
         },
         {
             "name": "symfony/options-resolver",
@@ -1774,7 +1774,7 @@
                 "configuration",
                 "options"
             ],
-            "time": "2017-05-17T16:21:40+00:00"
+            "time": "2017-05-17 16:21:40"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1833,7 +1833,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-06-14T15:44:48+00:00"
+            "time": "2017-06-14 15:44:48"
         },
         {
             "name": "symfony/polyfill-php70",
@@ -1892,7 +1892,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-06-14T15:44:48+00:00"
+            "time": "2017-06-14 15:44:48"
         },
         {
             "name": "symfony/polyfill-php72",
@@ -1947,7 +1947,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-06-14T19:10:36+00:00"
+            "time": "2017-06-14 19:10:36"
         },
         {
             "name": "symfony/process",
@@ -1996,7 +1996,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-15T08:52:56+00:00"
+            "time": "2017-07-15 08:52:56"
         },
         {
             "name": "symfony/stopwatch",
@@ -2045,7 +2045,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-17T07:33:44+00:00"
+            "time": "2017-07-17 07:33:44"
         },
         {
             "name": "symfony/yaml",

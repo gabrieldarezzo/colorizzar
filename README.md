@@ -139,30 +139,6 @@ try {
 
 
 
-You should use in dev-mode
-```
-"require-dev": {
-	"phpunit/phpunit": "5.5.7",
-	"squizlabs/php_codesniffer": "2.*",
-	"friendsofphp/php-cs-fixer": "^2.4"
-},
-"scripts": {
-	"test": [
-		"phpunit"
-	],
-	"ci": [
-		"php-cs-fixer fix ./src",
-		"php-cs-fixer fix ./tests",
-		"phpcs --standard=PSR2 ./src",
-		"phpcs --standard=PSR2 ./tests",
-		"@test"
-	]
-}
-```
-
-And run `composer ci`
-
-
 
 Run a specific test  
 
@@ -179,7 +155,6 @@ Run a specific test
 ```batch
 phpunit --group upload
 ```
-
 
 
 ### Don't know RGB color of your HEX?!  
