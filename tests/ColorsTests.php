@@ -4,14 +4,14 @@ namespace Colorizzar\Test;
 
 use Colorizzar\Colors;
 
-class ColorTests extends \PHPUnit_Framework_TestCase
-{
-    private $fileLocation;
+require_once __DIR__ . '/ColorizzarTests.php';
 
+class ColorTests extends ColorizzarTests
+{
     public function setUp()
     {
-        $this->fileLocation = __DIR__.'/files/car.png';
-    }
+       parent::setUp();
+    }            
 
     /**
      * @dataProvider provideValidColorName

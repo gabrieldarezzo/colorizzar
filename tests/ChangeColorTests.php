@@ -6,30 +6,13 @@ use Colorizzar\ChangeColor;
 use Colorizzar\Colors;
 use Colorizzar\CasterColors;
 
-class ChangeColorTests extends \PHPUnit_Framework_TestCase
+require_once __DIR__ . '/ColorizzarTests.php';
+
+class ChangeColorTests extends ColorizzarTests
 {
-    private $fileLocation;
-    private $folderOut;
-
-    //Default is Red car, 'tests/files/car.png'
-    private $defaultRedRGB = 255;
-    private $defaultGreenRGB = 31;
-    private $defaultBlueRGB = 40;
-    
-    private $defaultHex = '#FF1F28';
-
     public function setUp()
     {
-        $this->fileLocation = __DIR__.'/files/car.png';
-        $this->folderOut = __DIR__.'/output/';
-
-        //Delete all old files if exists, (Will ignore .gitkeep because glob() ignores all 'hidden')
-        $files = glob(__DIR__.'./output/*');
-        foreach ($files as $file) {
-            if (is_file($file)) {
-                unlink($file);
-            }
-        }
+        parent::setUp();
     }
 
     public function assertPreConditions()

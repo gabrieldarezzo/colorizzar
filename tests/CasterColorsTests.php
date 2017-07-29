@@ -2,19 +2,19 @@
 
 namespace Colorizzar\Test;
 
-use Colorizzar\Colors;
+
 use Colorizzar\CasterColors;
 
-class CasterColorsTests extends \PHPUnit_Framework_TestCase
-{
-    private $allColors;
-    
+require_once __DIR__ . '/ColorizzarTests.php';
+
+class CasterColorsTests extends ColorizzarTests
+{    
+
     public function setUp()
     {
-        $this->allColors = Colors::getAllColors();
+       parent::setUp();
     }
-
-    
+        
     public function testRgbToHex()
     {
         foreach ($this->allColors as $classColor) {
