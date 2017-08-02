@@ -10,8 +10,8 @@ class ColorTests extends ColorizzarTests
 {
     public function setUp()
     {
-       parent::setUp();
-    }            
+        parent::setUp();
+    }
 
     /**
      * @dataProvider provideValidColorName

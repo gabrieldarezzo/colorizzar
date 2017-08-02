@@ -6,14 +6,13 @@ use Colorizzar\Colors;
 use Colorizzar\UploadFile;
 use Colorizzar\ColorizzarWebService;
 
-
 require_once __DIR__ . '/ColorizzarTests.php';
 
 class ColorizzarWebServiceTests extends ColorizzarTests
 {
     public function setUp()
     {
-        parent::setUp();        
+        parent::setUp();
     }
 
 

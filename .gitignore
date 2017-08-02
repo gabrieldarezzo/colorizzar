@@ -4,3 +4,4 @@ phpunit.xml
 /tests/output/*
 !/tests/output/.gitkeep
 /uploads
+/new_cars

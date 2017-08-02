@@ -172,6 +172,10 @@ class ChangeColor
     */
     public function colorizeByNameColor($nameColor, $folderName, $fileName = '')
     {
+        if (!file_exists($folderName)) {
+            mkdir($folderName);
+        }
+
         $color = Colors::createByName($nameColor);
 
         $rgb = $color->getRgb();
@@ -180,7 +184,9 @@ class ChangeColor
         $targetBlue = $rgb[2];
         $colorName = $color->getColorName();
 
-        $fullName = $folderName . (($fileName == '') ? $colorName . '.png' : $fileName);
+        
+
+        $fullName = $folderName . (($fileName == '') ? strtolower($colorName) . '.png' : $fileName);
 
         $this->setToRGB($targetRed, $targetGreen, $targetBlue);
 

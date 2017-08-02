@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/gabrieldarezzo/colorizzar.svg?branch=master)](https://travis-ci.org/gabrieldarezzo/colorizzar/)
-[![Coverage Status](https://coveralls.io/repos/github/gabrieldarezzo/colorizzar/badge.svg?branch=master)](https://coveralls.io/github/gabrieldarezzo/colorizzar?branch=master)
 [![Version](https://img.shields.io/packagist/v/gabrieldarezzo/colorizzar.svg)](https://packagist.org/packages/gabrieldarezzo/colorizzar)
 [![Total Downloads](https://img.shields.io/packagist/dt/gabrieldarezzo/colorizzar.svg)](https://packagist.org/packages/gabrieldarezzo/colorizzar)  
 
@@ -10,158 +9,99 @@ Change color of an image without lose alpha channnel (alpha layer)
 Altere a cor da sua imagem sem perder a camada alpha (camada de transparência)
 
 
-You can change the color of this [car](https://github.com/gabrieldarezzo/colorizzar/blob/master/car.png?raw=true) (Or any imagem you want)
+You can change the color of this [car](https://github.com/gabrieldarezzo/colorizzar/blob/master/car.png?raw=true) (Or any imagem you want), example:
 
 
-You can create specific color by RGB:
+Change color from [red](https://www.webpagefx.com/web-design/random-color-picker/#FF1F28) color pick by Hexadecimal to [blue](https://www.webpagefx.com/web-design/random-color-picker/#1F75FE):  
+
+
+
 ```php
 <?php
- 
 require_once 'vendor/autoload.php';
 
 use Colorizzar\ChangeColor;
 
 $changeColor = new ChangeColor('red_car.png');
 
-//From Red (rgb Params)
-$changeColor->setFromRGB(255, 31, 40);
+//From Red Hexadecimal
+$changeColor->setFromHex('#FF1F28');
 
-//To Blue Color (rgb Params)
-$changeColor->setToRGB(135, 206, 235);
-$changeColor->colorizeKeepAplhaChannnel('new_blue_car.png');
+// Will create 'blue.png' in new_cars/ folder
+$changeColor->colorizeByNameColor('Blue', 'new_cars/');
 
 ```
 
-Or change color by color name with method `colorizeByNameColor()`
+Or create by specific color name, example from red to blue:  
 
 ```php
+<?php
+
+require_once 'vendor/autoload.php';
+
+use Colorizzar\ChangeColor;
+
 $changeColor = new ChangeColor('red_car.png');
-$changeColor->colorizeByNameColor('Blue', 'new_cars/'); // Will create 'blue.png'
+
+//From Red Hexadecimal
+$changeColor->setFromHex('#FF1F28');
+$changeColor->setToHex('#1F75FE');
+
+// Will create 'blue.png' in new_cars/ folder
+$changeColor->colorizeKeepAplhaChannnel('new_cars/blue.png');
+
 ```   
  
  
-Ex of result `colorizeKeepAplhaChannnel()`, `colorizeByNameColor()`  
+Result of   `colorizeKeepAplhaChannnel()`/`colorizeByNameColor()` :
 
 ![Scheme](doc/to_from_rgb.png)  
 
+-----------
 
-  
 
-### Create all `135` COLORS with `colorizeToAllColors()` !
+Create all `135` COLORS with `colorizeToAllColors()` !
 
 ![Scheme](doc/to_from.png)  
 
 ```php
 $changeColor = new ChangeColor('red_car.png');
+$changeColor->setFromHex('#FF1F28');
 $changeColor->colorizeToAllColors('cars/');
 ```
 
 
-
-
-```
-SSH:
-git clone git@github.com:gabrieldarezzo/colorizzar.git
-
-HTTPS:
-git clone https://github.com/gabrieldarezzo/colorizzar.git
-
-cd colorizzar  
-composer update  
-```
-
-Example of use:
-
-Run composer: 
-```
-composer require gabrieldarezzo/colorizzar:dev-master
-```
-
-And create index.php with this content:
-
-
-
-```php
-<?php
-
-require_once 'vendor/autoload.php';
-
-use Colorizzar\ChangeColor;
-
-$defaultRedRGB = 255;
-$defaultGreenRGB = 31;
-$defaultBlueRGB = 40;
-
-
-$fileLocation = __DIR__.'./files/car.png';
-$folderOut = __DIR__.'./output/';
-
-
-try {
-
-	$changeColor = new ChangeColor($fileLocation);
-	$changeColor->setFromRGB($defaultRedRGB, $defaultGreenRGB, $defaultBlueRGB);
-
-    //You can use by Hexadecimal too, Example:
-    //$changeColor->setFromHex('#FF1F28');
-
-	//Blue Color
-	$red   = 135;
-	$green = 206;
-	$blue  = 235;
-	$changeColor->setToRGB($red, $green, $blue);
-
-	$fileOut = $folderOut . 'new_blue_car.png';
-	$changeColor->colorizeKeepAplhaChannnel($fileOut);
-
-
-} catch(Exception $ex){
-	print $ex->getMessage();
-	die();
-}
-
-```
-
-
 ### TODO-LIST:
+  - FIX (ChangeColorTests.php:testColorizeLoopColors())  
+  - FIX require_once() on tests, (Maybe a custom vendor.php for tests)    
+  - Create a plugin in JS consume colorizzar and show in realtime result    
   - Improve tests (check in image created has new rgb expected)  
-  - IMPROVE TODOLIST and update readme with new methods (hexadecimal)
-  - (almost done) Create a WebService recive a file and manipulate methods to create dynamic
-  - Create a plugin in JS consume colorizzar and show in realtime result   
-  - (done) Add DockBlock in all methods
-  - (done) Improve ChangeColor.php SOLID
+  - (almost done -> `ColorizzarWebService.php`) Create a WebService recive a file and manipulate methods to create dynamic  
+  - (done) IMPROVE TODOLIST and update readme with new methods (hexadecimal)  
+  - (done) Add DockBlock in all methods  
+  - (done) Improve ChangeColor.php SOLID  
 
-
+ColorizzarWebService.php will be:
 1 - Hash create by upload image  
 2 - create a folder with same name of hash  
-3 - result a JSON with all urls created  
-4 - pop in JS and show final result to user like a magic   
+3 - result a JSON with all urls created    
+
+
+JS-Plugin will consume ColorizzarWebService.php and show final result to user like a magic   
+
+
+### Helpfull links
+  - Don't know RGB color of your HEX?!  -> https://www.webpagefx.com/web-design/hex-to-rgb/
+
+
+## How Contribute  
+Read:  
+https://github.com/gabrieldarezzo/colorizzar/blob/master/CONTRIBUTING.md  
 
 
 
 
-Run a specific test  
-
-
-```php
-
-   /**
-    * @group upload
-    */
-    public....
-```
-
-
-```batch
-phpunit --group upload
-```
-
-
-### Don't know RGB color of your HEX?!  
-https://www.webpagefx.com/web-design/hex-to-rgb/
-
-
-#### Thanks to:
+### Thanks to:
 
  * [@augustohp](https://github.com/augustohp) for code-review and 'JSON to Class' script on commit [@236b6f3734981d9e7f3758b5b5d8e709687675c3](https://github.com/gabrieldarezzo/colorizzar/pull/1/commits/236b6f3734981d9e7f3758b5b5d8e709687675c3)
  * https://stackoverflow.com/users/433392/steap

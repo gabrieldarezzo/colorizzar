@@ -5,22 +5,21 @@ use Colorizzar\Colors;
 
 class ColorizzarTests extends \PHPUnit_Framework_TestCase
 {
-
-    protected $allColors;    
-	protected $fileLocation;
+    protected $allColors;
+    protected $fileLocation;
     protected $folderOut;
 
     //Default is Red car, 'tests/files/car.png'
     protected $defaultRedRGB = 255;
     protected $defaultGreenRGB = 31;
-    protected $defaultBlueRGB = 40;    
+    protected $defaultBlueRGB = 40;
     protected $defaultHex = '#FF1F28';
     protected $mockFile;
     
 
     public function setUp()
-	{
-	    $this->fileLocation = __DIR__.'/files/car.png';	            
+    {
+        $this->fileLocation = __DIR__.'/files/car.png';
         $this->folderOut = __DIR__.'/output/';
         $this->allColors = Colors::getAllColors();
         $this->defaultFolder = $this->folderOut . '..'.  DIRECTORY_SEPARATOR .'..' . DIRECTORY_SEPARATOR;
@@ -32,7 +31,7 @@ class ColorizzarTests extends \PHPUnit_Framework_TestCase
             if (is_file($file)) {
                 unlink($file);
             }
-        }        
+        }
 
         //Mock File, equivalent of $_FILE but don't forget about (uploaded via PHP's HTTP POST upload mechanism check)
         $this->mockFile = [
@@ -44,21 +43,19 @@ class ColorizzarTests extends \PHPUnit_Framework_TestCase
                 'size' => 827
             ]
         ];
-	}
+    }
 
-	public function testFileCreation()
+    public function testFileCreation()
     {
         $this->assertTrue(file_exists($this->fileLocation));
         $this->assertTrue(is_readable($this->fileLocation));
     }
 
-	public function assertPreConditions()
+    public function assertPreConditions()
     {
         $this->assertFileExists(
             $this->fileLocation,
             'Arquivo de origem deve exitir.'
         );
     }
-    
-    
 }
