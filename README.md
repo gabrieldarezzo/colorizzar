@@ -62,13 +62,20 @@ Result of   `colorizeKeepAplhaChannnel()`/`colorizeByNameColor()` :
 
 Create all `135` COLORS with `colorizeToAllColors()` !
 
-![Scheme](doc/to_from.png)  
-
+Example of code:
 ```php
+<?php
+....
+
 $changeColor = new ChangeColor('red_car.png');
 $changeColor->setFromHex('#FF1F28');
 $changeColor->colorizeToAllColors('cars/');
-```
+```  
+
+![Scheme](doc/to_from.png)  
+
+
+
 
 
 ### TODO-LIST:
@@ -81,10 +88,10 @@ $changeColor->colorizeToAllColors('cars/');
   - (done) Add DockBlock in all methods  
   - (done) Improve ChangeColor.php SOLID  
 
-ColorizzarWebService.php will be:
-1 - Hash create by upload image  
-2 - create a folder with same name of hash  
-3 - result a JSON with all urls created    
+#### ColorizzarWebService.php will be:   
+  - Hash create by upload image  
+  - create a folder with same name of hash  
+  - result a JSON with all urls created    
 
 
 JS-Plugin will consume ColorizzarWebService.php and show final result to user like a magic   
