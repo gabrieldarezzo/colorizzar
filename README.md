@@ -5,7 +5,7 @@
 # Colorizzar 
 
 
-Change color of an image without lose alpha channnel (alpha layer)  
+Change color of an image without lose alpha channel (alpha layer)  
 Altere a cor da sua imagem sem perder a camada alpha (camada de transparência)
 
 
