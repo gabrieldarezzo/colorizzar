@@ -4,8 +4,6 @@ namespace Colorizzar\Test;
 
 use Colorizzar\UploadFile;
 
-require_once __DIR__ . '/ColorizzarTests.php';
-
 class UploadFileTests extends ColorizzarTests
 {
     public function setUp()

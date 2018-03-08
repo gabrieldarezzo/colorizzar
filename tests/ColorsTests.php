@@ -4,8 +4,6 @@ namespace Colorizzar\Test;
 
 use Colorizzar\Colors;
 
-require_once __DIR__ . '/ColorizzarTests.php';
-
 class ColorTests extends ColorizzarTests
 {
     public function setUp()

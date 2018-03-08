@@ -6,8 +6,6 @@ use Colorizzar\ChangeColor;
 use Colorizzar\Colors;
 use Colorizzar\CasterColors;
 
-require_once __DIR__ . '/ColorizzarTests.php';
-
 class ChangeColorTests extends ColorizzarTests
 {
     private $newOutput = '/tmp/new_output/';
