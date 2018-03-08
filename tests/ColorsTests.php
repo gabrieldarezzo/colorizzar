@@ -4,8 +4,6 @@ namespace Colorizzar\Test;
 
 use Colorizzar\Colors;
 
-require_once __DIR__ . '/ColorizzarTests.php';
-
 class ColorTests extends ColorizzarTests
 {
     public function setUp()
@@ -168,5 +166,14 @@ class ColorTests extends ColorizzarTests
         //Valid Color #324AB2 -> VioletBlue/Rgb
         $containColor = Colors::containsThisColorByFile([50, 74, 178], $this->fileLocation);
         $this->assertFalse($containColor);
+    }
+
+    /**
+     * @expectedException        Exception
+     * @expectedExceptionMessage File "invalid_file_path" not exists.
+     */
+    public function testGetAllUniqueRgbColorsWithInvalidFilePath()
+    {
+        $containColor = Colors::getAllUniqueRgbColors('invalid_file_path');
     }
 }

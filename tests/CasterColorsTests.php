@@ -4,8 +4,6 @@ namespace Colorizzar\Test;
 
 use Colorizzar\CasterColors;
 
-require_once __DIR__ . '/ColorizzarTests.php';
-
 class CasterColorsTests extends ColorizzarTests
 {
     public function setUp()

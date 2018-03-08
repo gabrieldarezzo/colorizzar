@@ -19,9 +19,9 @@
         "class": "Colorizzar"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.1",
+        "phpunit/phpunit": "^4.8",
         "squizlabs/php_codesniffer": "2.*",
-        "friendsofphp/php-cs-fixer": "^2.4"
+        "friendsofphp/php-cs-fixer": "^2.8"
     },
     "scripts": {
         "test": [
@@ -36,8 +36,13 @@
         ]
     },
     "autoload": {
-        "psr-0": {
-            "Colorizzar": "src/"
+        "psr-4": {
+            "Colorizzar\\": "src/Colorizzar/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Colorizzar\\Test\\": "tests/"
         }
     },
     "minimum-stability": "dev",
