@@ -6,4 +6,4 @@ php:
   - '7.1'
   - '7.2'
 
-install: composer install
+install: composer update
