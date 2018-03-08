@@ -2,8 +2,9 @@
 namespace Colorizzar\Test;
 
 use Colorizzar\Colors;
+use PHPUnit\Framework\TestCase;
 
-class ColorizzarTests extends \PHPUnit_Framework_TestCase
+class ColorizzarTests extends TestCase
 {
     protected $allColors;
     protected $fileLocation;
