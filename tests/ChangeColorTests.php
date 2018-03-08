@@ -10,7 +10,6 @@ require_once __DIR__ . '/ColorizzarTests.php';
 
 class ChangeColorTests extends ColorizzarTests
 {
-
     private $newOutput = '/tmp/new_output/';
 
     public function setUp()

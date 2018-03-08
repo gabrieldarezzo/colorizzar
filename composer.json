@@ -36,8 +36,13 @@
         ]
     },
     "autoload": {
-        "psr-0": {
-            "Colorizzar": "src/"
+        "psr-4": {
+            "Colorizzar\\": "src/Colorizzar/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Colorizzar\\Test\\": "tests/"
         }
     },
     "minimum-stability": "dev",
