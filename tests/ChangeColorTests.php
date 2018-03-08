@@ -24,7 +24,7 @@ class ChangeColorTests extends ColorizzarTests
         $changeColor = new ChangeColor('invalid_file_path');
     }
 
-    public function testColorizeByNameColorWithCreatingFolder()
+    public function testColorizeByNameColorWithCreatingSubFolder()
     {
         $changeColor = new ChangeColor($this->fileLocation);
         $changeColor->setFromRGB($this->defaultRedRGB, $this->defaultGreenRGB, $this->defaultBlueRGB);

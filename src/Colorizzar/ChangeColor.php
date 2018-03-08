@@ -173,7 +173,7 @@ class ChangeColor
     public function colorizeByNameColor($nameColor, $folderName, $fileName = '')
     {
         if (!file_exists($folderName)) {
-            mkdir($folderName);
+            mkdir($folderName, null, true);
         }
 
         $color = Colors::createByName($nameColor);

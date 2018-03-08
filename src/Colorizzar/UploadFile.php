@@ -113,7 +113,7 @@ class UploadFile
         }
         
         if (! file_exists($this->UploadPath)) {
-            mkdir($this->UploadPath);
+            mkdir($this->UploadPath, null, true);
         }
         
         if ($file['arquivo']['error'] !== UPLOAD_ERR_OK) {
