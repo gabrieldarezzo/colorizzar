@@ -169,4 +169,13 @@ class ColorTests extends ColorizzarTests
         $containColor = Colors::containsThisColorByFile([50, 74, 178], $this->fileLocation);
         $this->assertFalse($containColor);
     }
+
+    /**
+     * @expectedException        Exception
+     * @expectedExceptionMessage File "invalid_file_path" not exists.
+     */
+    public function testGetAllUniqueRgbColorsWithInvalidFilePath()
+    {
+        $containColor = Colors::getAllUniqueRgbColors('invalid_file_path');
+    }
 }

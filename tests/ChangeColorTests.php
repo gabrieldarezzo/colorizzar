@@ -10,9 +10,32 @@ require_once __DIR__ . '/ColorizzarTests.php';
 
 class ChangeColorTests extends ColorizzarTests
 {
+
+    private $newOutput = '/tmp/new_output/';
+
     public function setUp()
     {
         parent::setUp();
+    }
+
+    /**
+     * @expectedException        Exception
+     * @expectedExceptionMessage File "invalid_file_path" not exists.
+     */
+    public function testConstructorWithInvalidFilePath()
+    {
+        $changeColor = new ChangeColor('invalid_file_path');
+    }
+
+    public function testColorizeByNameColorWithCreatingFolder()
+    {
+        $changeColor = new ChangeColor($this->fileLocation);
+        $changeColor->setFromRGB($this->defaultRedRGB, $this->defaultGreenRGB, $this->defaultBlueRGB);
+        $result = $changeColor->colorizeByNameColor('Red Violet', $this->newOutput, 'violetinha.png');
+        unlink($this->newOutput . 'violetinha.png');
+        rmdir($this->newOutput);
+
+        $this->assertTrue($result);
     }
 
     public function assertPreConditions()
