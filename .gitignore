@@ -5,3 +5,7 @@ phpunit.xml
 !/tests/output/.gitkeep
 /uploads
 /new_cars
+composer.lock
+colorizzar.sublime-project
+colorizzar.sublime-workspace
+.project
