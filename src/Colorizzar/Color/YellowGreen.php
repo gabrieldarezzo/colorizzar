@@ -16,6 +16,6 @@ class YellowGreen implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [197, 227, 132];
+        return [197, 227, 132];
     }
 }

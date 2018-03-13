@@ -16,6 +16,6 @@ class BananaMania implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [250, 231, 181];
+        return [250, 231, 181];
     }
 }

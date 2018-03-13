@@ -16,6 +16,6 @@ class Fuchsia implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [195, 100, 197];
+        return [195, 100, 197];
     }
 }

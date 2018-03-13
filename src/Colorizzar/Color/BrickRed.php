@@ -16,6 +16,6 @@ class BrickRed implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [203, 65, 84];
+        return [203, 65, 84];
     }
 }

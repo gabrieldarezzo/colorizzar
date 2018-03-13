@@ -16,6 +16,6 @@ class TickleMePink implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [252, 137, 172];
+        return [252, 137, 172];
     }
 }

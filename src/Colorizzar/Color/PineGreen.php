@@ -16,6 +16,6 @@ class PineGreen implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [21, 128, 120];
+        return [21, 128, 120];
     }
 }

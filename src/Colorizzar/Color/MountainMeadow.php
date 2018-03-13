@@ -16,6 +16,6 @@ class MountainMeadow implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [48, 186, 143];
+        return [48, 186, 143];
     }
 }

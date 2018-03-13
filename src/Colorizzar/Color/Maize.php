@@ -16,6 +16,6 @@ class Maize implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [237, 209, 156];
+        return [237, 209, 156];
     }
 }

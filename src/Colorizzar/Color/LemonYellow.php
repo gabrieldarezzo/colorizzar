@@ -16,6 +16,6 @@ class LemonYellow implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 244, 79];
+        return [255, 244, 79];
     }
 }

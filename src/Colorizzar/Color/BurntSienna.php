@@ -16,6 +16,6 @@ class BurntSienna implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [234, 126, 93];
+        return [234, 126, 93];
     }
 }

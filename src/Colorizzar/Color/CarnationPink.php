@@ -16,6 +16,6 @@ class CarnationPink implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 170, 204];
+        return [255, 170, 204];
     }
 }

@@ -16,6 +16,6 @@ class TurquoiseBlue implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [119, 221, 231];
+        return [119, 221, 231];
     }
 }

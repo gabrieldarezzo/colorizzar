@@ -16,6 +16,6 @@ class Blush implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [222, 93, 131];
+        return [222, 93, 131];
     }
 }

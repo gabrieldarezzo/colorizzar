@@ -16,6 +16,6 @@ class ShockingPink implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [251, 126, 253];
+        return [251, 126, 253];
     }
 }

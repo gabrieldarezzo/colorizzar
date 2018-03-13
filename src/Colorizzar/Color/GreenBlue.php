@@ -16,6 +16,6 @@ class GreenBlue implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [17, 100, 180];
+        return [17, 100, 180];
     }
 }

@@ -16,6 +16,6 @@ class Shamrock implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [69, 206, 162];
+        return [69, 206, 162];
     }
 }

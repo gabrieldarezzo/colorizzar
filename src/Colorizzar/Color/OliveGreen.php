@@ -16,6 +16,6 @@ class OliveGreen implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [186, 184, 108];
+        return [186, 184, 108];
     }
 }

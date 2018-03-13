@@ -16,6 +16,6 @@ class OutrageousOrange implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 110, 74];
+        return [255, 110, 74];
     }
 }

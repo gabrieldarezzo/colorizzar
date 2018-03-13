@@ -16,6 +16,6 @@ class BlueGray implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [102, 153, 204];
+        return [102, 153, 204];
     }
 }

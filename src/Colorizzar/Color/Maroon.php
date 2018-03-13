@@ -16,6 +16,6 @@ class Maroon implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [200, 56, 90];
+        return [200, 56, 90];
     }
 }

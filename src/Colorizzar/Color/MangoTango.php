@@ -16,6 +16,6 @@ class MangoTango implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 130, 67];
+        return [255, 130, 67];
     }
 }

@@ -16,6 +16,6 @@ class Razzmatazz implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [227, 37, 107];
+        return [227, 37, 107];
     }
 }

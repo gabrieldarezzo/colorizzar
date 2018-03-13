@@ -16,6 +16,6 @@ class Fern implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [113, 188, 120];
+        return [113, 188, 120];
     }
 }

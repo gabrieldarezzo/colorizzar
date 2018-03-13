@@ -16,6 +16,6 @@ class RedViolet implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [192, 68, 143];
+        return [192, 68, 143];
     }
 }

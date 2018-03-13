@@ -16,6 +16,6 @@ class CadetBlue implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [176, 183, 198];
+        return [176, 183, 198];
     }
 }

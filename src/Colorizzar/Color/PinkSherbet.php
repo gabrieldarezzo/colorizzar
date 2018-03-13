@@ -16,6 +16,6 @@ class PinkSherbet implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [247, 143, 167];
+        return [247, 143, 167];
     }
 }

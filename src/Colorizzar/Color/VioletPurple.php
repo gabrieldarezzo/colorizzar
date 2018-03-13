@@ -16,6 +16,6 @@ class VioletPurple implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [146, 110, 174];
+        return [146, 110, 174];
     }
 }

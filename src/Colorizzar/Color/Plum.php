@@ -16,6 +16,6 @@ class Plum implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [142, 69, 133];
+        return [142, 69, 133];
     }
 }

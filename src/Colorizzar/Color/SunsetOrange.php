@@ -16,6 +16,6 @@ class SunsetOrange implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [253, 94, 83];
+        return [253, 94, 83];
     }
 }

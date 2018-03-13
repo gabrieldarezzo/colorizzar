@@ -16,6 +16,6 @@ class Thistle implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [235, 199, 223];
+        return [235, 199, 223];
     }
 }

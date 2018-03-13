@@ -16,6 +16,6 @@ class MidnightBlue implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [26, 72, 118];
+        return [26, 72, 118];
     }
 }

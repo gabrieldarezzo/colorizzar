@@ -16,6 +16,6 @@ class BurntOrange implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 127, 73];
+        return [255, 127, 73];
     }
 }

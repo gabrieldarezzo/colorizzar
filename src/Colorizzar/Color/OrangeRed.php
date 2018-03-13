@@ -16,6 +16,6 @@ class OrangeRed implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 43, 43];
+        return [255, 43, 43];
     }
 }

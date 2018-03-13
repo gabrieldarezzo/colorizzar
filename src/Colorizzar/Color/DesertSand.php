@@ -16,6 +16,6 @@ class DesertSand implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [239, 205, 184];
+        return [239, 205, 184];
     }
 }

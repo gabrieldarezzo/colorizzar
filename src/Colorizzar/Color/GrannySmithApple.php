@@ -16,6 +16,6 @@ class GrannySmithApple implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [168, 228, 160];
+        return [168, 228, 160];
     }
 }

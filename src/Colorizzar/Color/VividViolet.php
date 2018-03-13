@@ -16,6 +16,6 @@ class VividViolet implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [143, 80, 157];
+        return [143, 80, 157];
     }
 }

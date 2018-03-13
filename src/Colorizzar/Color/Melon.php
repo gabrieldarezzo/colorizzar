@@ -16,6 +16,6 @@ class Melon implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [253, 188, 180];
+        return [253, 188, 180];
     }
 }

@@ -16,6 +16,6 @@ class Beaver implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [159, 129, 112];
+        return [159, 129, 112];
     }
 }

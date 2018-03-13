@@ -16,6 +16,6 @@ class PurplePizzazz implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [254, 78, 218];
+        return [254, 78, 218];
     }
 }

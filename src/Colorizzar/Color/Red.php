@@ -16,6 +16,6 @@ class Red implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [238, 32, 77];
+        return [238, 32, 77];
     }
 }

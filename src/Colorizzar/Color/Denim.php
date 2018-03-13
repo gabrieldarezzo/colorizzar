@@ -16,6 +16,6 @@ class Denim implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [43, 108, 196];
+        return [43, 108, 196];
     }
 }

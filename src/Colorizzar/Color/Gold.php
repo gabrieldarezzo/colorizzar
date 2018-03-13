@@ -16,6 +16,6 @@ class Gold implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [231, 198, 151];
+        return [231, 198, 151];
     }
 }

@@ -16,6 +16,6 @@ class Inchworm implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [178, 236, 93];
+        return [178, 236, 93];
     }
 }

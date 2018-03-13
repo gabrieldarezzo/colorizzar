@@ -16,6 +16,6 @@ class CottonCandy implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 188, 217];
+        return [255, 188, 217];
     }
 }

@@ -16,6 +16,6 @@ class White implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 255, 255];
+        return [255, 255, 255];
     }
 }

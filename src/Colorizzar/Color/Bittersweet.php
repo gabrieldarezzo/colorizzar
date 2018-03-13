@@ -16,6 +16,6 @@ class Bittersweet implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [253, 124, 110];
+        return [253, 124, 110];
     }
 }

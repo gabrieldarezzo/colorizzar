@@ -16,6 +16,6 @@ class Lavender implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [252, 180, 213];
+        return [252, 180, 213];
     }
 }

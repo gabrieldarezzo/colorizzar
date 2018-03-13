@@ -16,6 +16,6 @@ class Asparagus implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [135, 169, 107];
+        return [135, 169, 107];
     }
 }

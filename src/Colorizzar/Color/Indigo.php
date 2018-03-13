@@ -16,6 +16,6 @@ class Indigo implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [93, 118, 203];
+        return [93, 118, 203];
     }
 }

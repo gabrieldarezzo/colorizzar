@@ -16,6 +16,6 @@ class PiggyPink implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [253, 221, 230];
+        return [253, 221, 230];
     }
 }

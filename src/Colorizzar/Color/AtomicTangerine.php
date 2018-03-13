@@ -16,6 +16,6 @@ class AtomicTangerine implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 164, 116];
+        return [255, 164, 116];
     }
 }

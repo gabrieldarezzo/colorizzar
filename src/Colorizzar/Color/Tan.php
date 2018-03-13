@@ -16,6 +16,6 @@ class Tan implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [250, 167, 108];
+        return [250, 167, 108];
     }
 }

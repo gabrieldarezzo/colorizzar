@@ -16,6 +16,6 @@ class TealBlue implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [24, 167, 181];
+        return [24, 167, 181];
     }
 }

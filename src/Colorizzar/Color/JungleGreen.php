@@ -16,6 +16,6 @@ class JungleGreen implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [59, 176, 143];
+        return [59, 176, 143];
     }
 }

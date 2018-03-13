@@ -16,6 +16,6 @@ class MacaroniandCheese implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 189, 136];
+        return [255, 189, 136];
     }
 }

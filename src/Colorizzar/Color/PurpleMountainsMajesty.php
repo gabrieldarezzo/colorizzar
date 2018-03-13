@@ -16,6 +16,6 @@ class PurpleMountainsMajesty implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [157, 129, 186];
+        return [157, 129, 186];
     }
 }

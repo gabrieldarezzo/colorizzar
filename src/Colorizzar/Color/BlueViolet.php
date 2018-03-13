@@ -16,6 +16,6 @@ class BlueViolet implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [115, 102, 189];
+        return [115, 102, 189];
     }
 }

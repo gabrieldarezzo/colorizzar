@@ -16,6 +16,6 @@ class Timberwolf implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [219, 215, 210];
+        return [219, 215, 210];
     }
 }

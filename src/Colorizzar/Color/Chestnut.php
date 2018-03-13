@@ -16,6 +16,6 @@ class Chestnut implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [188, 93, 88];
+        return [188, 93, 88];
     }
 }

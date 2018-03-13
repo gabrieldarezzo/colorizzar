@@ -16,6 +16,6 @@ class JazzberryJam implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [202, 55, 103];
+        return [202, 55, 103];
     }
 }

@@ -16,6 +16,6 @@ class Almond implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [239, 222, 205];
+        return [239, 222, 205];
     }
 }

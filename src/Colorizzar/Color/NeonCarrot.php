@@ -16,6 +16,6 @@ class NeonCarrot implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 163, 67];
+        return [255, 163, 67];
     }
 }

@@ -16,6 +16,6 @@ class VioletRed implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [247, 83, 148];
+        return [247, 83, 148];
     }
 }

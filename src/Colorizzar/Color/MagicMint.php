@@ -16,6 +16,6 @@ class MagicMint implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [170, 240, 209];
+        return [170, 240, 209];
     }
 }

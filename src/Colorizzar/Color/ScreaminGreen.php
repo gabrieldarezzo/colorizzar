@@ -16,6 +16,6 @@ class ScreaminGreen implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [118, 255, 122];
+        return [118, 255, 122];
     }
 }

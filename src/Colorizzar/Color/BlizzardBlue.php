@@ -16,6 +16,6 @@ class BlizzardBlue implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [172, 229, 238];
+        return [172, 229, 238];
     }
 }

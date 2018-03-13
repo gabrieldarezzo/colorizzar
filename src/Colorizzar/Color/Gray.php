@@ -16,6 +16,6 @@ class Gray implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [149, 145, 140];
+        return [149, 145, 140];
     }
 }

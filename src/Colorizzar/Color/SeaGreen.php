@@ -16,6 +16,6 @@ class SeaGreen implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [159, 226, 191];
+        return [159, 226, 191];
     }
 }

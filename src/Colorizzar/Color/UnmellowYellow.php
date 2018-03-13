@@ -16,6 +16,6 @@ class UnmellowYellow implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 255, 102];
+        return [255, 255, 102];
     }
 }

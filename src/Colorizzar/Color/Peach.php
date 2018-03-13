@@ -16,6 +16,6 @@ class Peach implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 207, 171];
+        return [255, 207, 171];
     }
 }

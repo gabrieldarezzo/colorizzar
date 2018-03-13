@@ -16,6 +16,6 @@ class Sunglow implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 207, 72];
+        return [255, 207, 72];
     }
 }

@@ -16,6 +16,6 @@ class RedOrange implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 83, 73];
+        return [255, 83, 73];
     }
 }

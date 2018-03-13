@@ -16,6 +16,6 @@ class NavyBlue implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [25, 116, 210];
+        return [25, 116, 210];
     }
 }

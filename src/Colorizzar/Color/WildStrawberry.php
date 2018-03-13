@@ -16,6 +16,6 @@ class WildStrawberry implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 67, 164];
+        return [255, 67, 164];
     }
 }

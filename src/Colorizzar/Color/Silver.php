@@ -16,6 +16,6 @@ class Silver implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [205, 197, 194];
+        return [205, 197, 194];
     }
 }

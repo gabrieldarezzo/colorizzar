@@ -16,6 +16,6 @@ class RoyalPurple implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [120, 81, 169];
+        return [120, 81, 169];
     }
 }

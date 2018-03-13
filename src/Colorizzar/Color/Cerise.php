@@ -16,6 +16,6 @@ class Cerise implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [221, 68, 146];
+        return [221, 68, 146];
     }
 }

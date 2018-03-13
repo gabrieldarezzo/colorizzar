@@ -16,6 +16,6 @@ class ForestGreen implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [109, 174, 129];
+        return [109, 174, 129];
     }
 }

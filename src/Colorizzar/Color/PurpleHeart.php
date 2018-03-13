@@ -16,6 +16,6 @@ class PurpleHeart implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [116, 66, 200];
+        return [116, 66, 200];
     }
 }

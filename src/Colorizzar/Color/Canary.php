@@ -16,6 +16,6 @@ class Canary implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 255, 153];
+        return [255, 255, 153];
     }
 }

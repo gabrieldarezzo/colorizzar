@@ -16,6 +16,6 @@ class Mahogany implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [205, 74, 76];
+        return [205, 74, 76];
     }
 }

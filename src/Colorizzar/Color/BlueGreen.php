@@ -16,6 +16,6 @@ class BlueGreen implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [13, 152, 186];
+        return [13, 152, 186];
     }
 }

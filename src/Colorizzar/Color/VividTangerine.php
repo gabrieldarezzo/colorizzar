@@ -16,6 +16,6 @@ class VividTangerine implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 160, 137];
+        return [255, 160, 137];
     }
 }

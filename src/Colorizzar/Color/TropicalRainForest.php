@@ -16,6 +16,6 @@ class TropicalRainForest implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [23, 128, 109];
+        return [23, 128, 109];
     }
 }

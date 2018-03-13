@@ -16,6 +16,6 @@ class Apricot implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [253, 217, 181];
+        return [253, 217, 181];
     }
 }

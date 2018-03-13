@@ -16,6 +16,6 @@ class TorchRed implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 31, 40];
+        return [255, 31, 40];
     }
 }

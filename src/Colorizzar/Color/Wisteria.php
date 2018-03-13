@@ -16,6 +16,6 @@ class Wisteria implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [205, 164, 222];
+        return [205, 164, 222];
     }
 }

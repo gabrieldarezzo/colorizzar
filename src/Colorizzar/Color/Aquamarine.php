@@ -16,6 +16,6 @@ class Aquamarine implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [120, 219, 226];
+        return [120, 219, 226];
     }
 }

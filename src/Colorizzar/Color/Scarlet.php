@@ -16,6 +16,6 @@ class Scarlet implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [252, 40, 71];
+        return [252, 40, 71];
     }
 }

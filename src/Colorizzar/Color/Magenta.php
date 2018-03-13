@@ -16,6 +16,6 @@ class Magenta implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [246, 100, 175];
+        return [246, 100, 175];
     }
 }

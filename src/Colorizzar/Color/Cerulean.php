@@ -16,6 +16,6 @@ class Cerulean implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [29, 172, 214];
+        return [29, 172, 214];
     }
 }

@@ -16,6 +16,6 @@ class SpringGreen implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [236, 234, 190];
+        return [236, 234, 190];
     }
 }

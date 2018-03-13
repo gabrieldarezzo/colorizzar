@@ -16,6 +16,6 @@ class ElectricLime implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [206, 255, 29];
+        return [206, 255, 29];
     }
 }

@@ -16,6 +16,6 @@ class YellowOrange implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 174, 66];
+        return [255, 174, 66];
     }
 }

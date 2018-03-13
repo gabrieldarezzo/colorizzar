@@ -16,6 +16,6 @@ class GreenYellow implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [240, 232, 145];
+        return [240, 232, 145];
     }
 }

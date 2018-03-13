@@ -16,6 +16,6 @@ class PacificBlue implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [28, 169, 201];
+        return [28, 169, 201];
     }
 }

@@ -16,6 +16,6 @@ class Blue implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [31, 117, 254];
+        return [31, 117, 254];
     }
 }

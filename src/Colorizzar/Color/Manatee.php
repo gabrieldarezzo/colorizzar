@@ -16,6 +16,6 @@ class Manatee implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [151, 154, 170];
+        return [151, 154, 170];
     }
 }

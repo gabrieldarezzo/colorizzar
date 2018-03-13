@@ -16,6 +16,6 @@ class Mulberry implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [197, 75, 140];
+        return [197, 75, 140];
     }
 }

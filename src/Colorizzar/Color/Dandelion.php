@@ -16,6 +16,6 @@ class Dandelion implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [253, 219, 109];
+        return [253, 219, 109];
     }
 }

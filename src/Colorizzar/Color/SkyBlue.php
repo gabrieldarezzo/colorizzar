@@ -16,6 +16,6 @@ class SkyBlue implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [128, 218, 235];
+        return [128, 218, 235];
     }
 }

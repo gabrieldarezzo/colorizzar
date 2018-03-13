@@ -16,6 +16,6 @@ class WildBlueYonder implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [162, 173, 208];
+        return [162, 173, 208];
     }
 }

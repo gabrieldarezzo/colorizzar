@@ -16,6 +16,6 @@ class Orchid implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [230, 168, 215];
+        return [230, 168, 215];
     }
 }

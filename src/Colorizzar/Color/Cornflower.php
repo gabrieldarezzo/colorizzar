@@ -16,6 +16,6 @@ class Cornflower implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [154, 206, 235];
+        return [154, 206, 235];
     }
 }

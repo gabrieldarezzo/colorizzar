@@ -16,6 +16,6 @@ class LaserLemon implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [254, 254, 34];
+        return [254, 254, 34];
     }
 }

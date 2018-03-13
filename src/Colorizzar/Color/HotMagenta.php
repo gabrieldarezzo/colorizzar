@@ -16,6 +16,6 @@ class HotMagenta implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 29, 206];
+        return [255, 29, 206];
     }
 }

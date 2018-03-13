@@ -16,6 +16,6 @@ class RobinsEggBlue implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [31, 206, 203];
+        return [31, 206, 203];
     }
 }

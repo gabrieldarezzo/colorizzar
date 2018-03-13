@@ -16,6 +16,6 @@ class Brown implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [180, 103, 77];
+        return [180, 103, 77];
     }
 }

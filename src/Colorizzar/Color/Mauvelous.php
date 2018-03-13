@@ -16,6 +16,6 @@ class Mauvelous implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [239, 152, 170];
+        return [239, 152, 170];
     }
 }

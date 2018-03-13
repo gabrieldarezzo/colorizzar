@@ -16,6 +16,6 @@ class Tumbleweed implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [222, 170, 136];
+        return [222, 170, 136];
     }
 }

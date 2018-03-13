@@ -16,6 +16,6 @@ class CaribbeanGreen implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [28, 211, 162];
+        return [28, 211, 162];
     }
 }

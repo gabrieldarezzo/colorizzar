@@ -16,6 +16,6 @@ class Sepia implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [165, 105, 79];
+        return [165, 105, 79];
     }
 }

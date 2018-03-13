@@ -16,6 +16,6 @@ class WildWatermelon implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [252, 108, 133];
+        return [252, 108, 133];
     }
 }

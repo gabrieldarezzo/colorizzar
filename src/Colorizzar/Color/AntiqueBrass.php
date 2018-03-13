@@ -16,6 +16,6 @@ class AntiqueBrass implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [205, 149, 117];
+        return [205, 149, 117];
     }
 }

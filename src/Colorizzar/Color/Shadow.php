@@ -16,6 +16,6 @@ class Shadow implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [138, 121, 93];
+        return [138, 121, 93];
     }
 }

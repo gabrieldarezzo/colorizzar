@@ -16,6 +16,6 @@ class Copper implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [221, 148, 117];
+        return [221, 148, 117];
     }
 }

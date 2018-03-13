@@ -16,6 +16,6 @@ class FuzzyWuzzy implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [204, 102, 102];
+        return [204, 102, 102];
     }
 }

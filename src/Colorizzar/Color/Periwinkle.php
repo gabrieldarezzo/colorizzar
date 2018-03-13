@@ -16,6 +16,6 @@ class Periwinkle implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [197, 208, 230];
+        return [197, 208, 230];
     }
 }

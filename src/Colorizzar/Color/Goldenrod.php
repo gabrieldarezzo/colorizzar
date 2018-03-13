@@ -16,6 +16,6 @@ class Goldenrod implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [252, 217, 117];
+        return [252, 217, 117];
     }
 }

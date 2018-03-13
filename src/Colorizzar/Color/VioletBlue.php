@@ -16,6 +16,6 @@ class VioletBlue implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [50, 74, 178];
+        return [50, 74, 178];
     }
 }

@@ -16,6 +16,6 @@ class Eggplant implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [110, 81, 96];
+        return [110, 81, 96];
     }
 }

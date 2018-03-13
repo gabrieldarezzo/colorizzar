@@ -16,6 +16,6 @@ class PinkFlamingo implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [252, 116, 253];
+        return [252, 116, 253];
     }
 }

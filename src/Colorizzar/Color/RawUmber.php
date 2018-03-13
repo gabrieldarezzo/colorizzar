@@ -16,6 +16,6 @@ class RawUmber implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [113, 75, 35];
+        return [113, 75, 35];
     }
 }

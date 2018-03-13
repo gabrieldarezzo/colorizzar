@@ -16,6 +16,6 @@ class OuterSpace implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [65, 74, 76];
+        return [65, 74, 76];
     }
 }

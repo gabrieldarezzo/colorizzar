@@ -16,6 +16,6 @@ class RadicalRed implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 73, 108];
+        return [255, 73, 108];
     }
 }

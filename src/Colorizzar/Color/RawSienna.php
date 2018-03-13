@@ -16,6 +16,6 @@ class RawSienna implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [214, 138, 89];
+        return [214, 138, 89];
     }
 }

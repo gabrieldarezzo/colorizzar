@@ -16,6 +16,6 @@ class BlueBell implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [162, 162, 208];
+        return [162, 162, 208];
     }
 }

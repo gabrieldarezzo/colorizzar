@@ -16,6 +16,6 @@ class RazzleDazzleRose implements HtmlColor
 
     public function getRgb()
     {
-        return (array) [255, 72, 208];
+        return [255, 72, 208];
     }
 }
