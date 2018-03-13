@@ -130,7 +130,6 @@ class ChangeColorTests extends ColorizzarTests
         $changeColor->setFromRGB($this->defaultRedRGB, $this->defaultGreenRGB, $this->defaultBlueRGB);
 
         $resultAllColors = $changeColor->colorizeToAllColors($this->folderOut);
-        //print_r($resultAllColors);die();
 
         $finalResult = true;
         $findFile = true;
@@ -146,16 +145,7 @@ class ChangeColorTests extends ColorizzarTests
         $this->assertTrue($findFile);
     }
 
-    //TODO
-    public function testExtensionIsFilePng()
-    {
-
-        //stripos(,"png")
-
-        $this->assertTrue(true);
-    }
-    
-    
+       
     public function provideValidHexName()
     {
         return [

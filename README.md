@@ -87,6 +87,12 @@ $changeColor->colorizeToAllColors('cars/');
   - (done) IMPROVE TODOLIST and update readme with new methods (hexadecimal)  
   - (done) Add DockBlock in all methods  
   - (done) Improve ChangeColor.php SOLID  
+  - testExtensionIsFilePng()
+
+
+
+
+
 
 #### ColorizzarWebService.php will be:   
   - Hash create by upload image  
