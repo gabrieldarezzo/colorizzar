@@ -23,7 +23,7 @@ class CasterColors
     public static function hexToRgb($hex)
     {
         list($r, $g, $b) = sscanf($hex, "#%02x%02x%02x");
-        return (array) [$r, $g, $b];
+        return [$r, $g, $b];
     }
 
     /**
@@ -40,6 +40,6 @@ class CasterColors
         $r = ($rgb >> 16) & 0xFF;
         $g = ($rgb >> 8) & 0xFF;
         $b = $rgb & 0xFF;
-        return (array) [$r, $g, $b];
+        return [$r, $g, $b];
     }
 }

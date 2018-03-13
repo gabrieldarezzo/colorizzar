@@ -21,7 +21,7 @@ class ColorizzarTests extends TestCase
     public function setUp()
     {
         $this->fileLocation = __DIR__.'/files/car.png';
-        $this->folderOut = __DIR__.'/output/';
+        $this->folderOut = __DIR__. DIRECTORY_SEPARATOR . 'output' . DIRECTORY_SEPARATOR;
         $this->allColors = Colors::getAllColors();
         $this->defaultFolder = $this->folderOut . '..'.  DIRECTORY_SEPARATOR .'..' . DIRECTORY_SEPARATOR;
 

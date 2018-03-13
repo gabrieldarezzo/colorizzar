@@ -120,41 +120,44 @@ class ChangeColor
             throw new Exception("You should use setToRGB() method");
         }
 
-        $im_src = imagecreatefrompng($this->filePathIn);
+        $imageCopy = imagecreatefrompng($this->filePathIn);
         $im_dst = imagecreatefrompng($this->filePathIn);
-        $width = imagesx($im_src);
-        $height = imagesy($im_src);
+        $width = imagesx($imageCopy);
+        $height = imagesy($imageCopy);
 
         // Note this: FILL IMAGE WITH TRANSPARENT BG
         imagefill($im_dst, 0, 0, IMG_COLOR_TRANSPARENT);
         imagesavealpha($im_dst, true);
         imagealphablending($im_dst, true);
 
-        $flagOK = 1;
-        for ($x=0; $x<$width; $x++) {
-            for ($y=0; $y<$height; $y++) {
-                $rgb = imagecolorat($im_src, $x, $y);
-                $colorOldRGB = imagecolorsforindex($im_src, $rgb);
+        for ($x = 0; $x < $width; $x++) {
+            for ($y = 0; $y < $height; $y++) {
+                $rgb = imagecolorat($imageCopy, $x, $y);
+                $colorOldRGB = imagecolorsforindex($imageCopy, $rgb);
                 $alpha = $colorOldRGB["alpha"];
-                $colorNew = imagecolorallocatealpha($im_src, $this->toRed, $this->toGreen, $this->toBlue, $alpha);
+                $colorNew = imagecolorallocatealpha($imageCopy, $this->toRed, $this->toGreen, $this->toBlue, $alpha);
 
                 $flagFoundColor = true;
 
                 $colorOld = imagecolorallocatealpha(
-                    $im_src,
+                    $imageCopy,
                     $colorOldRGB["red"],
                     $colorOldRGB["green"],
                     $colorOldRGB["blue"],
                     0
                 );
 
-                $color2Change = imagecolorallocatealpha($im_src, $this->fromRed, $this->fromGreen, $this->fromBlue, 0);
+                $color2Change = imagecolorallocatealpha(
+                    $imageCopy,
+                    $this->fromRed,
+                    $this->fromGreen,
+                    $this->fromBlue,
+                    0
+                );
 
                 $flagFoundColor = ($color2Change == $colorOld);
 
-                if (false === $colorNew) {
-                    $flagOK = 0;
-                } elseif ($flagFoundColor) {
+                if ($flagFoundColor) {
                     imagesetpixel($im_dst, $x, $y, $colorNew);
                 }
             }
@@ -207,7 +210,7 @@ class ChangeColor
             $targetGreen = $rgb[1];
             $targetBlue = $rgb[2];
             $colorName = $color->getColorName();
-            $fullName = $folderOut . '/' . $colorName;
+            $fullName = strtolower($folderOut . '/' . $colorName . '.png');
 
             $this->setToRGB($targetRed, $targetGreen, $targetBlue);
             $resultFile = $this->colorizeKeepAplhaChannnel($fullName);

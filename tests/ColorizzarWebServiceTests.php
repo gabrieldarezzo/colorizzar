@@ -16,7 +16,7 @@ class ColorizzarWebServiceTests extends ColorizzarTests
 
     public function provideValidColorName()
     {
-        return (array) [
+        return [
             'Banana Color' => ['BananaMania'],
             'Brown Color' => ['Brown'],
             'Yellow Color' => ['Yellow'],

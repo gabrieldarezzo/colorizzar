@@ -16,7 +16,7 @@ class ChangeColorTests extends ColorizzarTests
     }
 
     /**
-     * @expectedException        Exception
+     * @expectedException Exception
      * @expectedExceptionMessage File "invalid_file_path" not exists.
      */
     public function testConstructorWithInvalidFilePath()
@@ -124,53 +124,41 @@ class ChangeColorTests extends ColorizzarTests
         $this->assertTrue(file_exists($this->folderOut . 'violetinha.png'));
     }
 
-    public function testColorizeLoopColors()
-    {
-        /*
-        $changeColor = new ChangeColor($this->fileLocation);
-        $changeColor->setFromRGB($this->defaultRedRGB, $this->defaultGreenRGB, $this->defaultBlueRGB);
-
-        foreach (Colors::getAllColors() as $color) {
-            $rgb = $color->getRgb();
-            $targetRed   = $rgb[0];
-            $targetGreen = $rgb[1];
-            $targetBlue  = $rgb[2];
-            $colorName = $color->getColorName();
-
-            $folderOut = $this->folderOut . $colorName . '.png';
-
-            $changeColor->setToRGB($targetRed, $targetGreen, $targetBlue);
-            $changeColor->colorizeKeepAplhaChannnel($folderOut);
-        }
-
-        $this->assertTrue(file_exists($this->folderOut . 'blue.png'));
-        */
-        $this->assertTrue(true);
-    }
-
     public function testColorizeToAllColors()
     {
         $changeColor = new ChangeColor($this->fileLocation);
         $changeColor->setFromRGB($this->defaultRedRGB, $this->defaultGreenRGB, $this->defaultBlueRGB);
 
         $resultAllColors = $changeColor->colorizeToAllColors($this->folderOut);
+        //print_r($resultAllColors);die();
 
         $finalResult = true;
         $findFile = true;
 
         //Check if result is true and file exists
         foreach ($resultAllColors as $result) {
+            $carCreated = strtolower($result['file_name']) . '.png';
             $finalResult = $finalResult && $result['result'];
-            $findFile = $findFile && file_exists($this->folderOut . $result['file_name']);
+            $findFile = $findFile && file_exists($this->folderOut . $carCreated);
         }
 
         $this->assertTrue($finalResult);
         $this->assertTrue($findFile);
     }
+
+    //TODO
+    public function testExtensionIsFilePng()
+    {
+
+        //stripos(,"png")
+
+        $this->assertTrue(true);
+    }
+    
     
     public function provideValidHexName()
     {
-        return (array) [
+        return [
             'HexaDecimal Blue' => ['#1F75FE'],
             'HexaDecimal Red' => ['#EE204D'],
             'HexaDecimal VioletBlue' => ['#324AB2'],
