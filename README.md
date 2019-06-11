@@ -100,7 +100,7 @@ $changeColor->colorizeToAllColors('cars/');
   - result a JSON with all urls created    
 
 
-JS-Plugin will consume ColorizzarWebService.php and show final result to user like a magic   
+JS-Plugin will consume ColorizzarWebService.php and show final result to user like a magic!   
 
 
 ### Helpfull links
